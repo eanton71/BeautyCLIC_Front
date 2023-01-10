@@ -1,0 +1,36 @@
+a{
+    font-family: lobster;
+    font-size: 50px;
+    text-align: center;
+}
+nav {
+    background-color: rgb(135, 184, 231);
+    padding: 10px;
+    height: 100px;
+}
+
+nav immg{
+    width: 140px;
+}
+
+nav ul {
+    float: right;
+    list-style-type: none;
+}
+
+ul li{
+    display: inline-block;
+    padding: 10px;
+}
+li {
+    color:bisque;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+
+    width : 250px;
+    float: right;
+    
+}
