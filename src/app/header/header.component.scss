@@ -1,36 +1,26 @@
+.container {
+
+  height: 100px;
+  width:1600px;
+  display:grid;
+  place-items: center;
+}
+
 a{
-    font-family: lobster;
-    font-size: 50px;
+    font-family:serif;
+    font-size:55px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-right: 45px;
 }
-nav {
-    background-color: rgb(135, 184, 231);
-    padding: 10px;
-    height: 100px;
+h6{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  text-align: justify;
+  margin-left: 50px;
+
 }
 
-nav immg{
-    width: 140px;
-}
 
-nav ul {
-    float: right;
-    list-style-type: none;
-}
 
-ul li{
-    display: inline-block;
-    padding: 10px;
-}
-li {
-    color:bisque;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-form {
-
-    width : 250px;
-    float: right;
-    
-}
