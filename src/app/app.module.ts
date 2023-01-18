@@ -10,6 +10,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CalendarComponent } from './calendar/calendar.component';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    
 
   ],
   providers: [],
