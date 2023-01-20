@@ -10,7 +10,6 @@ import { AfterViewInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'BeautyFront';
-  
 
   ngAfterViewInit(): void{
     const map = new Map('map').setView([41.56499,2.02439], 13);

@@ -30,8 +30,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -94,8 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
