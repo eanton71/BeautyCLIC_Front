@@ -5,24 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
-import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { CalendarComponent } from './calendar/calendar.component'; 
- 
-
- 
-
-
-
+import { FooterComponent } from './footer/footer.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
-    NavbarComponent,
-    CalendarComponent,
-
+    FooterComponent 
   ],
   imports: [
     BrowserModule,
