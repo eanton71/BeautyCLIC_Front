@@ -7,8 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule } from '@syncfusion/ej2-angular-calendars';
+import { CalendarComponent } from './calendar/calendar.component'; 
  
 
  
@@ -28,9 +27,7 @@ import { CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModu
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    CalendarModule, DatePickerModule, TimePickerModule, DateRangePickerModule, DateTimePickerModule,
-    
+    FormsModule 
 
   ],
   providers: [],
