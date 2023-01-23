@@ -1,0 +1,30 @@
+{
+    "nombre": "BeautyCenter",
+    "direccion": "",
+    "telefono": "",
+    "correo electronico": "",
+    "ubicacion": "",
+    "horario": {
+        "lunes": [
+            9,
+            20
+        ],
+        
+        "martes": [
+            9,
+            20
+        ],
+        "miercoles": [
+            9,
+            20
+        ],
+        "jueves": [
+            9,
+            20
+        ],
+        "viernes": [
+            9,
+            20
+        ]
+    }
+}

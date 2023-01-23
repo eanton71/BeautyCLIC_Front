@@ -9,7 +9,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { PoliticaprivacidadComponent } from './components/politicaprivacidad/politicaprivacidad.component';
 import { HomeComponent } from './home/home.component';
-
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 
@@ -22,16 +22,13 @@ import { HomeComponent } from './home/home.component';
     ContactoComponent,
     PoliticaprivacidadComponent,
     HomeComponent,
-    CalendarComponent,
+    CalendarComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
