@@ -16,7 +16,8 @@ import { CalendarComponent } from './calendar/calendar.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent 
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
