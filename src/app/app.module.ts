@@ -11,6 +11,7 @@ import { PoliticaprivacidadComponent } from './components/politicaprivacidad/pol
 import { HomeComponent } from './home/home.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,7 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+
 
   ],
   providers: [],
