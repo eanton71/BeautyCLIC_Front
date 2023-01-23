@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { AfterViewInit } from '@angular/core';
 
 
@@ -10,11 +9,4 @@ import { AfterViewInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'BeautyFront';
-
-  ngAfterViewInit(): void{
-   
-  }  
 }
-
-
-
