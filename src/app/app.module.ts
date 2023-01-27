@@ -2,11 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/shared/header/header.component';  
 
+import { CategoriesComponent } from './categories/categories.component';
 
-
- 
+import { HeaderComponent } from './components/shared/header/header.component';   
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
@@ -14,6 +13,7 @@ import { PoliticaprivacidadComponent } from './components/politicaprivacidad/pol
 import { HomeComponent } from './home/home.component';
 import { CalendarComponent } from './calendar/calendar.component'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ProfileComponent } from './profile/profile.component';
@@ -38,8 +38,10 @@ import { MatListModule } from '@angular/material/list';
     PoliticaprivacidadComponent,
     HomeComponent,
     CalendarComponent,
+    CategoriesComponent,
     ProfileComponent,
     LogRegisterComponent
+
   ],
   imports: [
     BrowserModule,
