@@ -1,8 +1,8 @@
 {
     "nombre": "BeautyCenter",
     "direccion": "",
-    "telefono": "",
-    "correo electronico": "",
+    "telefono": "987654321",
+    "correo electronico": "beaty@mail.com",
     "ubicacion": "",
     "horario": {
         "lunes": [
