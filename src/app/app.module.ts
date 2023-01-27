@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 
 
@@ -19,6 +20,7 @@ import { CalendarComponent } from './calendar/calendar.component';
     FooterComponent,
     NavbarComponent,
     CalendarComponent,
+    CategoriesComponent,
 
   ],
   imports: [
