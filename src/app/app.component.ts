@@ -13,4 +13,4 @@ export class AppComponent {
   title = 'BeautyFront';
 }
 
-}
+
