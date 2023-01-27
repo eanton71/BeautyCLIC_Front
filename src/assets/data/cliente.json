@@ -1,0 +1,16 @@
+[
+  {
+    "nombre": "Enrique",
+    "apellidos": "Anton Lopez",
+    "correo electronico": "weerw@saas.com",
+    "telefono": "sd",
+    "password": "df"
+  },
+  {
+    "nombre": "Pepe",
+    "apellidos": "Barba Papa",
+    "correo electronico": "papaw@frita.com",
+    "telefono": "sd",
+    "password": "df"
+  }
+]

@@ -1,3 +1,4 @@
+ 
 <h2>Nuestros Servicios</h2>
 <div class="categorias">
   <div></div>
@@ -5,3 +6,27 @@
   <div></div>
   <div></div>
 </div>
+ 
+<div class="container">
+  <mat-card class="demo-inline-calendar-card">
+    <!--binding selectedDate, minDate, masxDate definido en ts, -->
+        <mat-calendar 
+                [minDate]="minDate" 
+                [maxDate]="maxDate" 
+                [(selected)]="selectedDate" 
+                (selectedChange)="dateChanged($event)">
+            </mat-calendar>
+    </mat-card>  
+
+ 
+    <mat-list class="list">
+        <mat-list-item>{{todayDate | date:'shortDate':'fr'}}</mat-list-item>
+        <mat-list-item>10:00 Mañana: Pepe, Juana</mat-list-item> 
+        <mat-list-item>12:00 Mañana: Luisa (habria que poner fotos)</mat-list-item> 
+        <mat-list-item>16:00 Tarde: Juana</mat-list-item>
+    </mat-list>
+ 
+
+</div>
+ 
+ 

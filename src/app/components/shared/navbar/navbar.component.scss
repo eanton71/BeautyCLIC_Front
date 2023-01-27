@@ -1,0 +1,39 @@
+.navbarlist{
+width: 1440px;;
+margin: 0px 132px;
+text-decoration: none;
+list-style: none;
+
+}
+li {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: black;
+  padding-left:10px ;
+}
+
+a{
+
+ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+}
+.jumbotron
+{
+  text-indent: 15px;
+  text-align-last: left ;
+  top:50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  font: bold;
+  width: 1440px;
+  margin: 0px 129px;
+  height:328px;
+  background-image: url(/assets/banner.png);
+background-repeat: no-repeat;
+}
+
+p{
+  font: 25px sans-serif;
+}
