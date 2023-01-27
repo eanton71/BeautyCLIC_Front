@@ -1,56 +1,73 @@
+.row {
+      width: 1440 px;
+      padding:  2% 5% 1% 10%;
+      display: flex;
+      overflow: auto;
+      align-self:flex-end;
+      flex-wrap: wrap;
 
-    #contain {
-      width: 1440px;
 
-      background: white;
-      background-repeat: no repeat;
-        background-position-x: center;
-        background-position-y: center;
-        background-size:auto ;
     }
+.col-sm-6 {
+      width: 50%;
+      min-width: 400px;
+      align-self:flex-end;
+    }
+.col-6 {
+      width:50%;
+}
 
-    #citaform {
-      width: 1182px;
+.modal-content {
+        text-align: justify;
         font-family: serif;
         margin: 10px auto;
-        background: rgb(190,206,117);
-        background: linear-gradient(0deg, rgba(190,206,117,1) 0%, rgba(241,253,253,1) 100%);
+        background: #E7E7E7;
         font-size: 14px;
-        width: 100%;
-        max-width: 800px;
         box-sizing: border-box;
         border-radius: 10px;
-    }
+
 
       label {
             display: block;
             font-size: 20px;
             padding: 0px;
             color:rgb(7, 11, 11) ;
-            text-shadow: 1px 1px 1px rgb(105, 128, 199);
+            text-shadow: 1px 1px 1px rgb(163, 181, 235);
 
-    }
+      }
 
-    input {
-        display: block;
+      input {
+            display: block;
             font-size: 18px;
             padding:  5px;
-    }
-    h3 {
+      }
 
+      h3 {
         font-family: serif;
         margin: px auto;
-
         font-size: 16px;
+        cursor: pointer;
+      }
+      a{
+      cursor:pointer;
+      }
+      textarea{
+      height: 120px;
+      width: 80%;
+      resize:none;
+      font-size: 18px;
+      }
+
+    .alternativo { color: rgb(94, 64, 7); text-decoration:underline;}
+
     }
+img{
+  border-radius: 30px;
+  margin-top: 10px;
+  margin-left: 50px;
 
-textarea{
-  height: 90px;
-  width: 50%;
-  resize:none
+
 }
-
-.alternativo { color: rgb(94, 64, 7); text-decoration:underline;}
 
 
 
