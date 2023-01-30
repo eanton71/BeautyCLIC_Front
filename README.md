@@ -27,7 +27,9 @@ export class ProductService {
   private urlpost = 'http://localhost:' + this.port +'/api/add_product';
 ...
 ```
-
+TODO: 
+Fijarse en elarchivo /services/cita.service.ts
+estan las peticiones HTTP , hay que implementarlas 
 
 
 

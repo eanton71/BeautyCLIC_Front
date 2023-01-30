@@ -26,6 +26,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatListModule } from '@angular/material/list';
+import { MatPaginator } from '@angular/material/paginator';
+import { MaterialModule } from '../material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -40,7 +43,8 @@ import { MatListModule } from '@angular/material/list';
     CalendarComponent,
     CategoriesComponent,
     ProfileComponent,
-    LogRegisterComponent
+    LogRegisterComponent,
+    
 
   ],
   imports: [
@@ -54,12 +58,19 @@ import { MatListModule } from '@angular/material/list';
     MatDatepickerModule,
     MatCardModule,
     MatNativeDateModule,
-    MatListModule
+    MatListModule,  
+    MaterialModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   exports: [
     // Material 
+ 
   ],
-  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'es-ES' }],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
+    MatPaginator
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,7 +5,16 @@
     width:1440px;  
 }
 
-.demo-inline-calendar-card {
-    width: 400px;
+.calendar-card {
+    min-width: 400px;
      
+}
+
+.demo-table {
+    min-width: 300px;
+    max-width: 400px;
+    height:80%;
+    max-height: 500px;
+    overflow: auto;
+    margin:50px;
 }
