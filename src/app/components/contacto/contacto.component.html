@@ -1,46 +1,61 @@
-  <div id="contain">
-  <div id="citaform">
-      <h4> ¿Tienes alguna duda? Contacta con nosotros</h4>
+<div class="row g-0 text-center">
 
-    <form action="https://formsubmit.co/runniiter@gmail.com" method="POST" >
-      <label for="full-name">Nombre y apellido:</label>
-      <input type="text" name="SOLICITUD CITA WEB: Nombre" id="full-name" placeholder="nombre y apellido" required="">
-      <label>Email:</label>
-    <input type="email" name="email" placeholder="su email de contacto"  />
-    <label for="telephone">Numero de telefono:</label>
-    <input type="telephone" name="telefono de contacto" id="telephone" placeholder="(655-555-555)">
-    <label>¿ Ha visitado anteriormente nuestro centro? </label>
-    <input type="text" name="clienta nueva" placeholder="conteste si o no"/>
-    <label>¿Prefiere que contactemos telefonicamente o por email?:</label>
-    <input type="text" name="Preferencia de contacto" placeholder="su preferencia: telefono o email"/>
-    <label>Comentarios </label>
-    <textarea name="mensaje" ml>  </textarea>
-
-    <h3 >Acepto recibir información comercial, incluso por correo electrónico.</h3>
-    <h3 class="alternativo"  routerLink="/politicaprivacidad">He leido y acepto la politica de privacidad </h3>
-    <a routerLinkActive="../politicaprivacidad/" He leído y acepto la   Política de Privacidad ></a>
-
-    <button class="btn btn-warning" id="my-form-button" type="submit">ACEPTO Y ENVIO</button>
-    <p id="my-form-status"></p>
+    <div class="col-sm-6 col-md-8">
 
 
+      <div class="modal-content">
+        <div class="modal-body">
+        <form method="POST" id="formulario" enctype="multipart/form-data" >
+          <h4> ¿Tienes alguna duda? Contacta con nosotros</h4>
+          <label for="full-name">Nombre y apellido:</label >
+      <input type="text" name="Nombre y apellido" id="full-name" placeholder="nombre y apellido" class="form-control" required="">
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" placeholder="su email de contacto" class="form-control" required="" >
+
+      <label for="telephone">Numero de telefono:</label>
+      <input type="tel" name="telefono de contacto" id="telephone" placeholder="  --- --- ---" class="form-control" required="">
+
+      <label for ="old user">¿ Ha visitado anteriormente nuestro centro? </label>
+      <input type="text" name="clienta nueva" placeholder=" si / no" class="form-control">
+
+      <!-- <label for="contact mode">¿Prefiere que contactemos telefonicamente o por email?:</label>
+      <input type="text" name="Preferencia de contacto" placeholder="su preferencia: telefono o email" class="form-control"/>
+      -->
+      <label for="comments">Comentarios </label>
+      <textarea name="mensaje" ml>  </textarea>
+
+      <h3 >Acepto recibir información comercial, incluso por correo electrónico.</h3>
+      <h3 class="alternativo"  routerLink="/politicaprivacidad">He leido y acepto la politica de privacidad </h3>
+      <a routerLinkActive="../politicaprivacidad/" He leído y acepto la   Política de Privacidad ></a>
+
+       <button class="btn btn-warning" id="my-form-button" type="submit">ACEPTO Y ENVIO</button>
+      <p id="my-form-status"></p>
 
 
+      </form>
+      </div>
+      </div>
+    </div>
+<!--input type=hidden :  un campo hidden se le denomina campo oculto Este tipode control no visualiza nada dentro del formulario.[ngClass]="
+  desde el servidor podriamos alivmacenar en un campo oculto un valor que se rescatara al subir el formulario al servidor"
+      <input type="hidden" name="_next" value="http://localhost:4200">   -->
 
 
-  <input type="hidden" name="_next" value="http://localhost:4200">
+      <div class="col-6 col-md-4">
 
-  <input type="hidden" name="_next" value="http://localhost:4200">
-  <input type="hidden" name="_captcha" value="false">
-</form>
+          <div class="modal-map">
+            <a href="https://www.google.com/maps/place/Carrer+de+Joaqu%C3%ADn+Costa,+34,+08222+Terrassa,+Barcelona/@41.5650586,2.0242962,17z/data=!4m13!1m7!3m6!1s0x12a492de4ec4c61d:0xdcdd155c1f8b0c4d!2sCarrer+de+Joaqu%C3%ADn+Costa,+34,+08222+Terrassa,+Barcelona!3b1!8m2!3d41.5650586!4d2.0242962!3m4!1s0x12a492de4ec4c61d:0xdcdd155c1f8b0c4d!8m2!3d41.5650586!4d2.0242962" target="_blank">
+          <img src="https://img.freepik.com/vector-premium/mapa-punto-ubicacion-destino_34645-957.jpg?w=740"  alt="mapa de posicion" width="500"  ></a>
+          </div>
+         <!-- <div id="map"></div> -->
+                  <div class ="horarios">
+          <a>➽ Nos encontramos en c/ Joaquín Costa, 34 Terrasa</a>
+          <h5>⌚ Abierto de 09:00 a.m. hasta 20:00 p.m.</h5>
+         </div>
+      </div>
 
 
   </div>
-  </div>
-
-
-
-
-
 
 

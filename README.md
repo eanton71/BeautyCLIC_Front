@@ -1,3 +1,39 @@
+
+
+-------------
+## Añadida libreria material de Angular para calendario y demas cosas 
+`ng add @angular/material`
+
+[https://material.angular.io/guide/getting-started](https://material.angular.io/guide/getting-started)
+
+## Necesario para leer archivos JSON en Angular
+Añadido archivo ./src/app/json-typings.d.ts
+```ts
+declare module "*.json" {
+  const value: any;
+  export default value;
+}
+```
+------------
+----------
+## Peticiones HTTP
+La declaracion de rutas se guarda al comienzo del archivo ts o en los archivos de la carpeta enviroments
+RUTA: http://IP/PUERTO/PATH
+En Frontend. Se implementan en los archivos service
+
+```ts
+export class ProductService {
+  private port = 3000; 
+  private urlpost = 'http://localhost:' + this.port +'/api/add_product';
+...
+```
+TODO: 
+Fijarse en elarchivo /services/cita.service.ts
+estan las peticiones HTTP , hay que implementarlas 
+
+
+
+----
 # BeautyFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.5.
@@ -25,3 +61,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
