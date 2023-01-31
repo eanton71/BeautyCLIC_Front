@@ -20,7 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LogRegisterComponent } from './log-register/log-register.component';
 
 
-//material 
+ 
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -30,21 +30,20 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MaterialModule } from '../material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    NavbarComponent,
+    NavbarComponent, 
     ContactoComponent,
     PoliticaprivacidadComponent,
     HomeComponent,
     CalendarComponent,
     CategoriesComponent,
     ProfileComponent,
-    LogRegisterComponent,
-    
+    LogRegisterComponent, 
 
   ],
   imports: [

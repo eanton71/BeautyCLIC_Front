@@ -1,3 +1,5 @@
+ 
+ 
 <div class="container">
   <mat-card class="calendar-card">
     <!--binding selectedDate, minDate, masxDate definido en ts, -->
@@ -11,7 +13,7 @@
   </mat-card> 
   {{todayDate | date:'shortTime'}} 
   {{evento}}
-<!--
+ 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
     <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
       <th mat-header-cell *matHeaderCellDef>
@@ -27,8 +29,7 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 </div>
--->
-<!--
+ 
 <mat-list class="list">
   <mat-list-item>{{todayDate | date:'shortDate':'fr'}}</mat-list-item>
   <mat-list-item>10:00 Mañana: Pepe, Juana</mat-list-item>
@@ -38,3 +39,4 @@
 
 
 </div>-->
+ 
