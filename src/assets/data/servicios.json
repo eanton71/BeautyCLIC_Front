@@ -4,7 +4,7 @@
           "duracion": 45,
           "descripcion": "",
           "precio": 50,
-          "categoria": "Tratamientos corporales",
+          "categoria": "Cuidados corporales",
           "foto": ""
      },
      {
@@ -12,7 +12,7 @@
           "duracion": 30,
           "descripcion": "",
           "precio": 50,
-          "categoria": "Tratamientos corporales",
+          "categoria": "Cuidados corporales",
           "foto": ""
      },
      {
@@ -20,7 +20,7 @@
           "duracion": 45,
           "descripcion": "",
           "precio": 50,
-          "categoria": "Tratamientos corporales",
+          "categoria": "Cuidados corporales",
           "foto": ""
      },
      {
@@ -28,7 +28,7 @@
           "duracion": 45,
           "descripcion": "",
           "precio": 50,
-          "categoria": "Tratamientos corporales",
+          "categoria": "Cuidados corporales",
           "foto": ""
      },
      {
@@ -36,7 +36,7 @@
           "duracion": 60,
           "descripcion": "",
           "precio": 50,
-          "categoria": "Tratamientos corporales",
+          "categoria": "Cuidados corporales",
           "foto": ""
      },
      {
@@ -44,95 +44,99 @@
           "duracion": 60,
           "descripcion": "",
           "precio": 50,
-          "categoria": "Tratamientos corporales",
+          "categoria": "Cuidados corporales",
           "foto": ""
      },
      {
           "nombre": "BeautyClic Zen (Masaje + presoterapia)                ",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
-          "categoria": "Relax",
+          "categoria": "Pack Relax",
+          "foto": ""
+     },
+     {
+          "nombre": "Spa Beauty CLic",
+          "duracion": 60,
+          "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
+          "categoria": "Pack Relax",
           "foto": ""
      },
      {
           "nombre": "Spa Beauty CLic  Uva Roja - Antioxidante y regenerante",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
-          "categoria": "Relax",
+          "categoria": "Pack Relax",
           "foto": ""
      },
      {
           "nombre": "Spa Beauty CLic  Maracuyá - Detox y anticelulitico ",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
-          "categoria": "Relax",
+          "categoria": "Pack Relax",
           "foto": ""
      },
      {
-          "nombre": "Spa Beauty CLic  Choco - Chocoterapia  ",
+          "nombre": "Spa Beauty CLic  Choco - Chocoterapia",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
-          "categoria": "Relax",
+          "categoria": "Pack Relax",
           "foto": ""
      },
      {
-          "nombre": "Spa Beauty CLic  Oro - Rejuevenecedor                 ",
+          "nombre": "Spa Beauty CLic  Oro - Rejuevenecedor",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
-          "categoria": "Relax",
+          "categoria": "Pack Relax",
           "foto": ""
      },
      {
-          "nombre": "Higiene facial                         ",
+          "nombre": "Higiene facial",
           "duracion": 50,
           "descripcion": "",
-          "categoria": "Tratamientos faciales",
+          "categoria": "Cuidados faciales",
           "foto": ""
      },
      {
-          "nombre": "Tratamiento facial específico:         ",
+          "nombre": "Tratamiento facial específico",
           "duracion": 45,
-          "descripcion": "                  Purificante / Iluminador /Calmante / Anti-arrugas",
-          "categoria": "Tratamientos faciales",
+          "descripcion": "Purificante / Iluminador /Calmante / Anti-arrugas",
+          "categoria": "Cuidados faciales",
           "foto": ""
      },
      {
-          "nombre": "Facial High- Tech                      ",
+          "nombre": "Facial High- Tech",
           "duracion": 45,
           "descripcion": "           Radiofrecuencia / Crioterapia / Vacum   ",
-          "categoria": "Tratamientos faciales",
+          "categoria": "Cuidados faciales",
           "foto": ""
      },
      {
-          "nombre": "Microneedling / Micropunción           ",
+          "nombre": "Microneedling",
+          "duracion": 45,
+          "descripcion": " con activos biológicos   | Micropunción",
+          "categoria": "Cuidados faciales",
+          "foto": ""
+     },
+     {
+          "nombre": "Maderoterapia facial",
           "duracion": 45,
           "descripcion": "",
-          "categoria": "Tratamientos faciales",
+          "categoria": "Cuidados faciales",
           "foto": ""
      },
      {
-          "nombre": "Microneedling con activos biológicos   ",
+          "nombre": "Masaje facial",
           "duracion": 45,
-          "descripcion": "",
-          "categoria": "Tratamientos faciales",
+          "descripcion": "Kobido",
+          "categoria": "Cuidados faciales",
           "foto": ""
      },
+
+
+
+
      {
-          "nombre": "Maderoterapia facial                   ",
-          "duracion": 45,
-          "descripcion": "",
-          "categoria": "Tratamientos faciales",
-          "foto": ""
-     },
-     {
-          "nombre": "Masaje facial Kobido                   ",
-          "duracion": 45,
-          "descripcion": "",
-          "categoria": "Tratamientos faciales",
-          "foto": ""
-     },
-     {
-          "nombre": "Facial Labio o mentón                                               ",
+          "nombre": "Facial Labio o mentón",
           "duracion": 20,
           "descripcion": "Cera",
           "categoria": "Depilación láser y cera",
@@ -152,6 +156,9 @@
           "categoria": "Depilación láser y cera",
           "foto": ""
      },
+
+
+
      {
           "nombre": "Depilación zona pequeña: axilas, o línea alba, o línea bikini ",
           "duracion": 20,
@@ -173,6 +180,9 @@
           "categoria": "Depilación láser y cera",
           "foto": ""
      },
+
+
+
      {
           "nombre": " Labio Superior/ Pómulos o patillas ",
           "duracion": 20,
@@ -180,13 +190,7 @@
           "categoria": "Depilación láser y cera",
           "foto": ""
      },
-     {
-          "nombre": " Zona S (Axilas, mentón)  ",
-          "duracion": 20,
-          "descripcion": "Láser",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
-     },
+     
      {
           "nombre": " Perianal                                                  ",
           "duracion": 20,
@@ -195,15 +199,24 @@
           "foto": ""
      },
      {
-          "nombre": " Zona M (medios brazos, medias piernas, gluteos, ingles)   ",
-          "duracion": 35,
+          "nombre": " Brazos completos                                          ",
+          "duracion": 40,
+          "descripcion": "Láser",
+          "categoria": "Depilación láser y cera",
+          "foto": ""
+     },
+     
+     
+     {
+          "nombre": " Zona S (Axilas, mentón)  ",
+          "duracion": 20,
           "descripcion": "Láser",
           "categoria": "Depilación láser y cera",
           "foto": ""
      },
      {
-          "nombre": " Brazos completos                                          ",
-          "duracion": 40,
+          "nombre": " Zona M (medios brazos, medias piernas, gluteos, ingles)   ",
+          "duracion": 35,
           "descripcion": "Láser",
           "categoria": "Depilación láser y cera",
           "foto": ""

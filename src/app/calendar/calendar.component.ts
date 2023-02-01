@@ -18,74 +18,58 @@
  * 
  */
 import { Component } from '@angular/core'; 
-export interface Element {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-/*
-const ELEMENT_DATA: Element[] = [
-  { hora: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { hora: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { hora: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { hora: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { hora: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { hora: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { hora: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { hora: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { hora: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { hora: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-];
-*/
+import * as festivos from '../../assets/data/festivos.json'
+//import { Hora, Horario } from './horario';
+//import { Horario,Hora } from './horario';
 @Component({
   selector: 'app-calendar',
   templateUrl: 'calendar.component.html',
   styleUrls: ['calendar.component.scss'],
 })
-
-
-export class CalendarComponent { 
-  /*columns = [
-    {
-      columnDef: 'position',
-      header: 'No.',
-      cell: (element: PeriodicElement) => `${element.position}`,
-    },
-    {
-      columnDef: 'name',
-      header: 'Name',
-      cell: (element: PeriodicElement) => `${element.name}`,
-    },
-    {
-      columnDef: 'weight',
-      header: 'Weight',
-      cell: (element: PeriodicElement) => `${element.weight}`,
-    },
-    {
-      columnDef: 'symbol',
-      header: 'Symbol',
-      cell: (element: PeriodicElement) => `${element.symbol}`,
-    },
-  ];
-  dataSource = ELEMENT_DATA;
   
-  displayedColumns = this.columns.map(c => c.columnDef);
-
-*/
-  //hora: Date = new Date(hours, minutes);
+export class CalendarComponent { 
+  mes = ["Enero", "Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+  // binding (enlaza) en el template html 
   todayDate: Date = new Date();
-  //binding (enlaza) en el tempate html 
+  //
   selectedDate: Date = new Date() ;
   //definir fecha minima y maxima para mostrar
   minDate = new Date(2023, 0, 1);
-  maxDate = new Date(2023, 3, 31);
-  evento: string="";
-  dateChanged(event: any) {
-    this.evento = event.value;
-    console.log("Date changed", event);
-    //handler logic
+  maxDate = new Date(2023, 3, 31); 
+  dia: Date = new Date();
+  
+  horario = new Array(); 
+  horarioStr:string[] = [];
+  seleccionado = false;
+  generarHorario() {
+    this.horario = new Array();
+    let hora: number = 9;
+    let min: number = 0;
+    this.horario.push({ hora: 9, min: 0 }); 
+    for (let i = 1; i < 48; i++) { 
+      hora = hora + Math.floor((min + 15) / 60);
+      min = (min + 15) % 60;
+      this.horario.push({ hora: hora, min: min });
+     
+    }
   }
+  onSelect(event: any) {
+    console.log(event);
+    this.selectedDate = event;
+    this.dia = event; 
+    
+    
+   /*
+    console.log(this.dia.getFullYear());
+    console.log(this.mes[this.dia.getMonth()]);
+    console.log(this.dia.getDate());
+    */
+    this.generarHorario();
+    console.log(this.horario);
+    this.horarioStr = this.horario.map(a => a.hora + ":"+a.min);
+    this.seleccionado = true;
+  }
+  //dia: this.selectedDate.getDay()
   deshabilitaDias = (d: Date): boolean => {
     for (let i = 0; i < 10;i++){}
     return (d.getDay() !== 0 && d.getDay() !== 6);
