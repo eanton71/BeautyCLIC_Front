@@ -1,40 +1,61 @@
 <div class="container">
-  <mat-card class="calendar-card">
+  <div class="calendar-card">
+  <mat-card >
     <!--binding selectedDate, minDate, masxDate definido en ts, -->
     <mat-calendar 
     [minDate]="minDate"
     [maxDate]="maxDate"
     [dateFilter]="deshabilitaDias" 
-      (selectedChange)="dateChanged($event)"
+    [selected]="selectedDate" 
+      (selectedChange)="onSelect($event)"
       >
     </mat-calendar>
   </mat-card> 
-  {{todayDate | date:'shortTime'}} 
-  {{evento}}
-<!--
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
-    <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-      <th mat-header-cell *matHeaderCellDef>
-        {{column.header}}
-      </th>
-      
-      <td mat-cell *matCellDef="let row">
-        {{column.cell(row)}}
-      </td>
-    </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+  <mat-chip-listbox aria-label="Dog selection">
+    <mat-chip-option>
+      <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu" />
+      Pepa
+    </mat-chip-option>
+    <mat-chip-option color="primary">
+      <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu" />
+      Mari
+    </mat-chip-option>
+    <mat-chip-option color="accent">
+      <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu" />
+      Luisa
+    </mat-chip-option>
+  </mat-chip-listbox>
 </div>
--->
-<!--
-<mat-list class="list">
-  <mat-list-item>{{todayDate | date:'shortDate':'fr'}}</mat-list-item>
-  <mat-list-item>10:00 Mañana: Pepe, Juana</mat-list-item>
-  <mat-list-item>12:00 Mañana: Luisa (habria que poner fotos)</mat-list-item>
-  <mat-list-item>16:00 Tarde: Juana</mat-list-item>
-</mat-list>
+<div *ngIf="seleccionado"  > 
+  <mat-selection-list class="rightlist" #shoes [multiple]="false" >
+    <mat-list-option *ngFor="let hora of horarioStr" [value]="hora">
+      {{hora}}
+    </mat-list-option>
+  </mat-selection-list>
+  
+  <p>
+    Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
+  </p>
+  <button mat-button color="primary">Confirmar</button>
+</div>
+  <!--{{todayDate | date:'shortTime'}} 
+  {{selectedDate}}
+  dia {{dia}}
+  <mat-list class="rightlist">
+    <mat-list-item *ngFor="let hora of horario" >{{hora.hora}}: {{hora.min}}</mat-list-item> 
+  </mat-list>
 
+  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 horario-table">
+  <ng-container matColumnDef="hora">
+    <th mat-header-cell *matHeaderCellDef> Hora </th>
+    <td mat-cell *matCellDef="let horario"> {{horario.hora}} : {{horario.min}} </td>
+  </ng-container>
+  <ng-container matColumnDef="min">
+    <th mat-header-cell *matHeaderCellDef> Minutos </th>
+    <td mat-cell *matCellDef="let horario">   {{horario.min}} </td>
+  </ng-container>
+  </table>
+  -->
+ 
 
-</div>-->

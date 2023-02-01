@@ -1,68 +1,71 @@
 [
     {
         "nombre": "Jose",
-        "apellidos": "",
-        "correo electronico": "",
+        "apellidos": "Cornejo",
+        "correo electronico": "jose@beauty.com",
+        "descripcion":"",
         "telefono": "",
         "foto": "",
         "password": "",
         "horario": {
             "monday": [
                 9,
-                20
+                14
             ],
             "tuesday": [
                 9,
-                20
+                14
             ],
             "wednesday": [
                 9,
-                20
+                14
             ],
             "thursday": [
                 9,
-                20
+                14
             ],
             "friday": [
                 9,
-                20
+                14
             ]
         }
     },
     {
-        "nombre": "",
-        "apellidos": "",
-        "correo electronico": "",
+        "nombre": "Maria",
+        "apellidos": "Ruiz",
+        "correo electronico": "maria@beauty.com",
+        "descripcion":"",
         "telefono": "",
         "foto": "",
         "password": "",
         "horario": {
             "monday": [
-                9,
+                15,
                 20
             ],
             "tuesday": [
-                9,
+                15,
                 20
             ],
             "wednesday": [
-                9,
+                15,
                 20
             ],
             "thursday": [
-                9,
+                15,
                 20
             ],
             "friday": [
-                9,
+                15,
                 20
             ]
         }
     },
     {
         "nombre": "Luisa",
-        "apellidos": "",
-        "correo electronico": "",
+        "apellidos": "Gomez",
+        "correo electronico": "luisa@beauty.com",
+        "descripcion":"",
         "telefono": "",
         "foto": "",
         "password": "",
@@ -78,33 +81,20 @@
             "wednesday": [
                 9,
                 20
-            ],
-            "thursday": [
-                9,
-                20
-            ],
-            "friday": [
-                9,
-                20
             ]
+            
         }
     },
     {
         "nombre": "Maria",
-        "apellidos": "",
-        "correo electronico": "",
+        "apellidos": "Quero",
+        "correo electronico": "quero@beauty.com",
+        "descripcion":"",
         "telefono": "",
         "foto": "",
         "password": "",
         "horario": {
-            "monday": [
-                9,
-                20
-            ],
-            "tuesday": [
-                9,
-                20
-            ],
+            
             "wednesday": [
                 9,
                 20
@@ -120,9 +110,10 @@
         }
     },
     {
-        "nombre": "",
-        "apellidos": "",
-        "correo electronico": "",
+        "nombre": "Mirta",
+        "apellidos": "Suarez",
+        "correo electronico": "mirta@beauty.com",
+        "descripcion":"",
         "telefono": "",
         "foto": "",
         "password": "",
@@ -151,8 +142,9 @@
     },
     {
         "nombre": "Remedios",
-        "apellidos": "",
-        "correo electronico": "",
+        "apellidos": "Lamas",
+        "correo electronico": "remedios@beauty.com",
+        "descripcion":"",
         "telefono": "",
         "foto": "",
         "password": "",
@@ -180,9 +172,10 @@
         }
     },
     {
-        "nombre": "",
-        "apellidos": "",
-        "correo electronico": "",
+        "nombre": "Ruth",
+        "apellidos": "Reyes Serra",
+        "correo electronico": "ruth@beauty.com",
+        "descripcion":"",
         "telefono": "",
         "foto": "",
         "password": "",
@@ -195,9 +188,10 @@
         ]
     },
     {
-        "nombre": "",
-        "apellidos": "",
-        "correo electronico": "",
+        "nombre": "Alba",
+        "apellidos": "Rosales",
+        "correo electronico": "alba@beauty.com",
+        "descripcion":"",
         "telefono": "",
         "foto": "",
         "password": "",
