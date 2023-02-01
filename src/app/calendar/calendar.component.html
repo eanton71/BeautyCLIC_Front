@@ -1,3 +1,5 @@
+ 
+ 
 <div class="container">
   <div class="calendar-card">
   <mat-card >
@@ -11,6 +13,7 @@
       >
     </mat-calendar>
   </mat-card> 
+
   <mat-chip-listbox aria-label="Dog selection">
     <mat-chip-option>
       <img matChipAvatar src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Photo of a Shiba Inu" />
@@ -32,18 +35,21 @@
       {{hora}}
     </mat-list-option>
   </mat-selection-list>
+
   
   <p>
     Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
   </p>
   <button mat-button color="primary">Confirmar</button>
 </div>
+ 
   <!--{{todayDate | date:'shortTime'}} 
   {{selectedDate}}
   dia {{dia}}
   <mat-list class="rightlist">
     <mat-list-item *ngFor="let hora of horario" >{{hora.hora}}: {{hora.min}}</mat-list-item> 
   </mat-list>
+ 
 
   
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 horario-table">
@@ -59,3 +65,4 @@
   -->
  
 
+ 
