@@ -82,7 +82,7 @@
                 9,
                 20
             ]
-            
+
         }
     },
     {
@@ -94,7 +94,7 @@
         "foto": "",
         "password": "",
         "horario": {
-            
+
             "wednesday": [
                 9,
                 20
@@ -141,9 +141,9 @@
         }
     },
     {
-        "nombre": "Remedios",
+        "nombre": "Miquel",
         "apellidos": "Lamas",
-        "correo electronico": "remedios@beauty.com",
+        "correo electronico": "miquel@beauty.com",
         "descripcion":"",
         "telefono": "",
         "foto": "",

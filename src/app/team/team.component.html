@@ -1,1 +1,9 @@
-<p>team works!</p>
+<div id="contentTeam">
+  <div class="employee">
+    <img src="#" alt="workerImage">
+    <div class="workerDescription" **ngFor="let employee of employees">
+      <h3> {{employee.nombre + employee.apellido}} </h3>
+      <p>{{employee.info}}</p>
+    </div>
+  </div>
+</div>
