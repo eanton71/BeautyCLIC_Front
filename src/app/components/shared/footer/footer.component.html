@@ -2,6 +2,10 @@
 <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
 
 <hr style="color:black; opacity: 100; margin-bottom: 3em; margin-top: 2em;">
+
+<button (click)="avanza()">Avanza {{this.avanzado}} {{hola}} </button>
+<br><button (click)="auto_avanza()">auto</button>
+
 <div class="footer-container">
   
   
@@ -35,8 +39,8 @@
     
     
       <div class="footer-content">      
-        <a href="https://es-es.facebook.com/" target="_blank"
-          ><i class="fa fa-facebook fa-2x"></i>
+        <a href="https://es-es.facebook.com/" target="_blank">
+          <i class="fa fa-facebook fa-2x"></i>
         </a>
         <a href="https://www.instagram.com/" target="_blank">
           <i class="fa fa-instagram fa-2x"></i>
@@ -46,80 +50,50 @@
         </a>
       </div>
     </div>
-    
-  </div>
-  <div class="footer-box-big">
-    <h2>Únete a nuestra Newsletter</h2>
-    <div class="footer-content">
-      <input  type="text" placeholder="Email" />
-      <h2>Política de Privacidad</h2>
-      <input type="checkbox" /> Acepto la política de privacidad
-      <br>
-      <button>Enviar</button>
-    </div>
 
+  </div>
+  <div class="footer-box-big" *ngIf="newsAsk">
+    <h2>Únete a nuestra Newsletter</h2>
+    <div class="footer-content" *ngIf="newsAsk">
+      
+      <form [formGroup]="newsForm" (ngSubmit)="send();">
+        <input  type="text" formControlName="email" 
+            placeholder="Email" class="news-email" width="50px"/>    
+
+        <div class="news_error" *ngIf="email.errors?.['email'] && submited">
+          Debe aceptar la política de privacidad para poder continuar.
+        </div>
+            
+        
+        <h4>Política de Privacidad</h4>
+        <div class="cb_container">
+          <input type="checkbox"  formControlName="accepting" class="news-check"/> 
+          <div class="polit_text">
+            <a href="" title="Política de privacidad">Acepto la política de privacidad *</a>
+          </div>
+        </div>
+
+        <div class="news_error" *ngIf="accepting.errors?.['required'] && submited">
+          Debe aceptar la política de privacidad para poder continuar.
+        </div>
+        
+        <div class="center_btn">
+          <button class="news-btn">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-box-big" *ngIf="!newsAsk">
+    <h2>Bienvenido a la Newsletter</h2>
+    
+    <div class="footer-content">
+      <p>Las últimas noticias y nuevas ofertas en nuestra Newsletter.</p>
+      <p>Como cada semana, en su email.</p>
+    </div>
   </div>
 
 </div>
 
-
-<div class="footer-clic">
-    <div class="siguenos">
-      <h5>Síguenos</h5>
-      <i class="fa fa-instagram"></i>
-      <a href="https://es-es.facebook.com/" target="_blank"
-        ><i class="fa fa-facebook fa-2x"></i>
-      </a>
-      <a href="https://www.instagram.com/" target="_blank">
-        <i class="fa fa-instagram fa-2x"></i>
-      </a>
-      <a href="https://www.instagram.com/" target="_blank">
-        <i class="fa fa-twitter fa-2x fa"></i>
-      </a>
-    </div>
-    <div class="beauty-clic">
-      <div class="location-clic">
-        <h5>BeautyClic</h5>
-        <i class="fa-solid fa-location-dot"></i>
-        <span
-          >Carrer de Joaquín Costa, 34,<br />08222 Terrassa, Barcelona</span
-        >
-      </div>
-      <div class="location-clic">
-        <a
-          href="https://www.google.com/intl/es/gmail/about/"
-          target="_blank"
-        >
-          <i class="fa-solid fa-envelope"></i>
-          <span>beautyclic@gmail.es</span>
-        </a>
-      </div>
-      <div class="location-clic">
-        <i class="fa-solid fa-mobile"></i>
-        <span>+34 931 245 678</span>
-      </div>
-    </div>
-  </div>
-  <hr />
-  <div class="footer-container">
-    <div class="footer_bottom">
-      <div class="condiciones-politicas">
-        <a href="#" title="Condiciones de uso"
-          ><strong>CONDICIONES DE USO</strong></a
-        >
-        |
-        <a href="#" title="Política de privacidad redes sociales"
-          >Política de privacidad redes sociales</a
-        >
-        |
-        <a href="#" title="Politica de cookies"
-          ><b>POLÍTICA DE COOKIES</b></a
-        >
-        |
-        <a href="#" title="Condiciones de Contratación"
-          >Condiciones de Contratación</a
-        >
-      </div>
-    </div>
-  </div>
+  
 
