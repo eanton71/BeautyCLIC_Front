@@ -29,6 +29,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginator } from '@angular/material/paginator';
 import { MaterialModule } from '../material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiciosComponent } from './servicios/servicios.component';
 
  
 @NgModule({
@@ -43,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CalendarComponent,
     CategoriesComponent,
     ProfileComponent,
-    LogRegisterComponent, 
+    LogRegisterComponent,
+    ServiciosComponent, 
 
   ],
   imports: [

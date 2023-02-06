@@ -1,221 +1,59 @@
 [
     {
-        "nombre": "Jose",
+        "nombre": "Ana",
         "apellidos": "Cornejo",
-        "correo electronico": "jose@beauty.com",
-        "descripcion":"",
-        "telefono": "",
-        "foto": "",
-        "password": "",
-        "horario": {
-            "monday": [
-                9,
-                14
-            ],
-            "tuesday": [
-                9,
-                14
-            ],
-            "wednesday": [
-                9,
-                14
-            ],
-            "thursday": [
-                9,
-                14
-            ],
-            "friday": [
-                9,
-                14
-            ]
-        }
+        "correo electronico": "ana@beauty.com",
+        "info":"",
+        "foto": "/img/equipo/chica.png"
+
     },
     {
         "nombre": "Maria",
         "apellidos": "Ruiz",
         "correo electronico": "maria@beauty.com",
-        "descripcion":"",
-        "telefono": "",
-        "foto": "",
-        "password": "",
-        "horario": {
-            "monday": [
-                15,
-                20
-            ],
-            "tuesday": [
-                15,
-                20
-            ],
-            "wednesday": [
-                15,
-                20
-            ],
-            "thursday": [
-                15,
-                20
-            ],
-            "friday": [
-                15,
-                20
-            ]
-        }
+        "info":"",
+        "foto": "/img/equipo/chica1.png"
     },
     {
         "nombre": "Luisa",
         "apellidos": "Gomez",
         "correo electronico": "luisa@beauty.com",
-        "descripcion":"",
-        "telefono": "",
-        "foto": "",
-        "password": "",
-        "horario": {
-            "monday": [
-                9,
-                20
-            ],
-            "tuesday": [
-                9,
-                20
-            ],
-            "wednesday": [
-                9,
-                20
-            ]
-
-        }
+        "info":"" ,
+        "foto": "/img/equipo/chica2.png"
     },
     {
         "nombre": "Maria",
         "apellidos": "Quero",
         "correo electronico": "quero@beauty.com",
-        "descripcion":"",
-        "telefono": "",
-        "foto": "",
-        "password": "",
-        "horario": {
-
-            "wednesday": [
-                9,
-                20
-            ],
-            "thursday": [
-                9,
-                20
-            ],
-            "friday": [
-                9,
-                20
-            ]
-        }
+        "info":"",
+        "foto": "/img/equipo/chica3.png"
     },
     {
         "nombre": "Mirta",
         "apellidos": "Suarez",
         "correo electronico": "mirta@beauty.com",
-        "descripcion":"",
-        "telefono": "",
-        "foto": "",
-        "password": "",
-        "horario": {
-            "monday": [
-                9,
-                20
-            ],
-            "tuesday": [
-                9,
-                20
-            ],
-            "wednesday": [
-                9,
-                20
-            ],
-            "thursday": [
-                9,
-                20
-            ],
-            "friday": [
-                9,
-                20
-            ]
-        }
+        "info":"",
+        "foto": "/img/equipo/chica4.jpeg"
     },
     {
         "nombre": "Miquel",
         "apellidos": "Lamas",
-        "correo electronico": "miquel@beauty.com",
-        "descripcion":"",
-        "telefono": "",
-        "foto": "",
-        "password": "",
-        "horario": {
-            "monday": [
-                9,
-                20
-            ],
-            "tuesday": [
-                9,
-                20
-            ],
-            "wednesday": [
-                9,
-                20
-            ],
-            "thursday": [
-                9,
-                20
-            ],
-            "friday": [
-                9,
-                20
-            ]
-        }
+        "correo electronico": "remedios@beauty.com",
+        "info":"",
+        "foto": "/img/equipo/chica5.jpeg"
     },
     {
-        "nombre": "Ruth",
+        "nombre": "Rodolfo",
         "apellidos": "Reyes Serra",
-        "correo electronico": "ruth@beauty.com",
-        "descripcion":"",
-        "telefono": "",
-        "foto": "",
-        "password": "",
-        "horario": [
-            {
-                "monday": [
-                    10
-                ]
-            }
-        ]
+        "correo electronico": "rodolfo@beauty.com",
+        "info":"",
+        "foto": "/img/equipo/chico.png"
     },
     {
-        "nombre": "Alba",
+        "nombre": "Baldomero",
         "apellidos": "Rosales",
-        "correo electronico": "alba@beauty.com",
-        "descripcion":"",
-        "telefono": "",
-        "foto": "",
-        "password": "",
-        "horario": {
-            "monday": [
-                9,
-                20
-            ],
-            "tuesday": [
-                9,
-                20
-            ],
-            "wednesday": [
-                9,
-                20
-            ],
-            "thursday": [
-                9,
-                20
-            ],
-            "friday": [
-                9,
-                20
-            ]
-        }
+        "correo electronico": "Baldomero@beauty.com",
+        "info":"",
+        "foto": "/img/equipo/chico2.png"
     }
 ]

@@ -5,7 +5,7 @@
           "descripcion": "",
           "precio": 50,
           "categoria": "Cuidados corporales",
-          "foto": ""
+          "foto": "/img/categorias/corporales/exfoliacionyespalda.png"
      },
      {
           "nombre": "Masaje Relajante",
@@ -13,7 +13,7 @@
           "descripcion": "",
           "precio": 50,
           "categoria": "Cuidados corporales",
-          "foto": ""
+          "foto": "/img/categorias/corporales/masaje-relajante.png"
      },
      {
           "nombre": "Masaje Descontracturante",
@@ -21,7 +21,7 @@
           "descripcion": "",
           "precio": 50,
           "categoria": "Cuidados corporales",
-          "foto": ""
+          "foto": "/img/categorias/corporales/descontracturante.png"
      },
      {
           "nombre": "Masaje Piernas",
@@ -29,7 +29,7 @@
           "descripcion": "",
           "precio": 50,
           "categoria": "Cuidados corporales",
-          "foto": ""
+          "foto": "/img/categorias/corporales/masaje-piernas.png"
      },
      {
           "nombre": "Maderoterapia corporal",
@@ -37,7 +37,7 @@
           "descripcion": "",
           "precio": 50,
           "categoria": "Cuidados corporales",
-          "foto": ""
+          "foto": "/img/categorias/corporales/maderoterapia-corporal.png"
      },
      {
           "nombre": "Criolipolisis",
@@ -45,187 +45,133 @@
           "descripcion": "",
           "precio": 50,
           "categoria": "Cuidados corporales",
-          "foto": ""
+          "foto": "/img/categorias/corporales/criolipolisis.png"
      },
      {
           "nombre": "BeautyClic Zen (Masaje + presoterapia)                ",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
           "categoria": "Pack Relax",
-          "foto": ""
+          "foto": "/img/categorias/relax/zen.png"
      },
      {
           "nombre": "Spa Beauty CLic",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
           "categoria": "Pack Relax",
-          "foto": ""
+          "foto": "/img/categorias/relax/spa.png"
      },
      {
           "nombre": "Spa Beauty CLic  Uva Roja - Antioxidante y regenerante",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
           "categoria": "Pack Relax",
-          "foto": ""
+          "foto": "/img/categorias/relax/vino.png"
      },
      {
           "nombre": "Spa Beauty CLic  Maracuyá - Detox y anticelulitico ",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
           "categoria": "Pack Relax",
-          "foto": ""
+          "foto": "/img/categorias/relax/maracuya.png"
      },
      {
           "nombre": "Spa Beauty CLic  Choco - Chocoterapia",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
           "categoria": "Pack Relax",
-          "foto": ""
+          "foto": "/img/categorias/relax/choco.png"
      },
      {
           "nombre": "Spa Beauty CLic  Oro - Rejuevenecedor",
           "duracion": 60,
           "descripcion": "(peeling corporal, envoltura, ducha e hidratación profunda)",
           "categoria": "Pack Relax",
-          "foto": ""
+          "foto": "/img/categorias/relax/oro.png"
      },
      {
           "nombre": "Higiene facial",
           "duracion": 50,
           "descripcion": "",
           "categoria": "Cuidados faciales",
-          "foto": ""
+          "foto": "/img/categorias/faciales/higiene-facial.png"
      },
      {
           "nombre": "Tratamiento facial específico",
           "duracion": 45,
           "descripcion": "Purificante / Iluminador /Calmante / Anti-arrugas",
           "categoria": "Cuidados faciales",
-          "foto": ""
+          "foto": "/img/categorias/faciales/tratamiento-facial.png"
      },
      {
           "nombre": "Facial High- Tech",
           "duracion": 45,
           "descripcion": "           Radiofrecuencia / Crioterapia / Vacum   ",
           "categoria": "Cuidados faciales",
-          "foto": ""
+          "foto": "/img/categorias/faciales/facial-hightech.png"
      },
      {
           "nombre": "Microneedling",
           "duracion": 45,
           "descripcion": " con activos biológicos   | Micropunción",
           "categoria": "Cuidados faciales",
-          "foto": ""
+          "foto": "/img/categorias/faciales/microneedling.png"
      },
      {
           "nombre": "Maderoterapia facial",
           "duracion": 45,
           "descripcion": "",
           "categoria": "Cuidados faciales",
-          "foto": ""
+          "foto": "/img/categorias/faciales/maderoterapia-facial.png"
      },
      {
           "nombre": "Masaje facial",
           "duracion": 45,
           "descripcion": "Kobido",
           "categoria": "Cuidados faciales",
-          "foto": ""
+          "foto": "/img/categorias/faciales/masaje-facial.png"
      },
 
-
-
-
      {
-          "nombre": "Facial Labio o mentón",
+          "nombre": "Depilación zona pequeña,Cera",
           "duracion": 20,
-          "descripcion": "Cera",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
+          "descripcion": "Cera: axilas, o línea alba, o línea bikini ",
+          "categoria": "Depilación",
+          "foto": "/img/categorias/depilacion/pequeñacera.png"
      },
      {
-          "nombre": "Facial Repaso cejas                                                 ",
-          "duracion": 20,
-          "descripcion": "Cera",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
-     },
-     {
-          "nombre": "Facial Diseño cejas ",
-          "duracion": 40,
-          "descripcion": "Cera",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
-     },
-
-
-
-     {
-          "nombre": "Depilación zona pequeña: axilas, o línea alba, o línea bikini ",
-          "duracion": 20,
-          "descripcion": "Cera",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
-     },
-     {
-          "nombre": "Depilación zona mediana: medias piernas o brazos o ingles brasileñas",
+          "nombre": "Depilación zona mediana,Cera",
           "duracion": 35,
-          "descripcion": "Cera",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
+          "descripcion": "Cera: medias piernas o brazos o ingles brasileñas",
+          "categoria": "Depilación",
+          "foto": "/img/categorias/depilacion/meidanacera.png"
      },
      {
-          "nombre": "Depilación zona grande: piernas enteras o ingles integrales ",
+          "nombre": "Depilación zona grande ,Cera",
           "duracion": 50,
-          "descripcion": "Cera",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
-     },
-
-
-
+          "descripcion": "Cera: piernas enteras o ingles integrales",
+          "categoria": "Depilación",
+          "foto": "/img/categorias/depilacion/grandecera.png"
+     }, 
      {
-          "nombre": " Labio Superior/ Pómulos o patillas ",
+          "nombre": " Zona S  ,Láser",
           "duracion": 20,
-          "descripcion": "Láser",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
-     },
-     
-     {
-          "nombre": " Perianal                                                  ",
-          "duracion": 20,
-          "descripcion": "Láser",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
+          "descripcion": "Láser,(Axilas, mentón) ",
+          "categoria": "Depilación",
+          "foto": "/img/categorias/depilacion/pequeñalaser.png"
      },
      {
-          "nombre": " Brazos completos                                          ",
-          "duracion": 40,
-          "descripcion": "Láser",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
-     },
-     
-     
-     {
-          "nombre": " Zona S (Axilas, mentón)  ",
-          "duracion": 20,
-          "descripcion": "Láser",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
-     },
-     {
-          "nombre": " Zona M (medios brazos, medias piernas, gluteos, ingles)   ",
+          "nombre": " Zona M ,Láser",
           "duracion": 35,
-          "descripcion": "Láser",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
+          "descripcion": "Láser(medios brazos, medias piernas, gluteos, ingles) ",
+          "categoria": "Depilación",
+          "foto": "/img/categorias/depilacion/medianalaser.png"
      },
      {
-          "nombre": " Zona L (ingles integrales, piernas enteras)               ",
+          "nombre": " Zona L ,Láser",
           "duracion": 50,
-          "descripcion": "Láser",
-          "categoria": "Depilación láser y cera",
-          "foto": ""
+          "descripcion": "Láser(ingles integrales, piernas enteras) ",
+          "categoria": "Depilación",
+          "foto": "/img/categorias/depilacion/grandelaser.png"
      }
 ]
