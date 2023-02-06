@@ -1,7 +1,10 @@
 <div class="container">
     <ul>
         <li *ngFor="let categoria of categorias">
-            {{categoria.nombre}}
+            ID: {{ categoria._id }}, 
+            Nombre: {{ categoria.nombre }}, 
+            imagen: <img src={{this.serverimg+categoria.foto}}>
+
         </li>
 
     </ul>
