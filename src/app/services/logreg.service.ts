@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { User } from '../models/user';
+import { Cliente } from '../models/cliente';
 import { CryptoService } from './crypto.service';
 
 @Injectable({
@@ -12,11 +12,11 @@ import { CryptoService } from './crypto.service';
 })
 export class LogregService {
 
-  private currentUserSubject:BehaviorSubject<User>;
+  private currentUserSubject: BehaviorSubject<Cliente>;
 
 
   constructor(private httpClient:HttpClient,private router:Router, private crypto:CryptoService) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')||'{}'));
+    this.currentUserSubject = new BehaviorSubject<Cliente>(JSON.parse(localStorage.getItem('user')||'{}'));
 
    }
 
@@ -44,7 +44,7 @@ export class LogregService {
      * formato de la peticion HTTP POST
      * <parametro>
      */
-    return this.httpClient.post<User>(environment.url_login,loginData,{observe:'response'}).pipe(map(response=>{
+    return this.httpClient.post<Cliente>(environment.url_login,loginData,{observe:'response'}).pipe(map(response=>{
       if(response.status === 200){ 
         this.setLocalStorageUser(response.body!);
         return true;
@@ -84,7 +84,7 @@ export class LogregService {
     formData.append("user_id",userid);
     formData.append("picture",imagefile);
 
-    return this.httpClient.put<User>(environment.url_update_image, formData,{observe:'response'}).pipe(map(response=>{
+    return this.httpClient.put<Cliente>(environment.url_update_image, formData,{observe:'response'}).pipe(map(response=>{
 
       if(response.ok){
 
@@ -101,7 +101,7 @@ export class LogregService {
 
   }
 
-  public get currentUserValue(): User | undefined{
+  public get currentUserValue(): Cliente | undefined{
     const user = JSON.parse(localStorage.getItem('user')!);
     this.currentUserSubject.next(user);
     if(this.currentUserSubject !== null){
@@ -112,7 +112,7 @@ export class LogregService {
 
   public get userName():string{
 
-    return this.currentUserSubject.value.name;
+    return this.currentUserSubject.value.nombre;
 
   }
 
@@ -127,32 +127,32 @@ export class LogregService {
     return this.currentUserSubject.value._id;
 
   }
-
+/*
   public get userPicture():string{
 
-    return this.currentUserSubject.value.user_image;
+    return this.currentUserSubject.value.email;
 
   }
-
+*/
   logout():void{
     localStorage.removeItem('user');
     this.currentUserSubject.next({_id:'',
-      name:'',
-      username:'',
-      user_image:'',
-      email:''})
+      nombre:'',
+      apellidos:'',
+      email:'',
+      telefono:0})
     this.router.navigate(['']);
   }
 
-  private updateImageLocalStorage(user:User):void{
+  private updateImageLocalStorage(user: Cliente):void{
 
     let usr = JSON.parse(localStorage.getItem('user')!);
-    user.user_image = usr.user_image;
+    user.email = usr.email;
     localStorage.setItem('user',JSON.stringify(user));
     this.currentUserSubject.next(user);
   }
 
-  setLocalStorageUser(user:User):void{
+  setLocalStorageUser(user: Cliente):void{
     localStorage.setItem('user',JSON.stringify(user));
     this.currentUserSubject.next(user);
   }

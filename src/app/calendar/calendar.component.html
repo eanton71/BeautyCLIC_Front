@@ -12,7 +12,7 @@
       (selectedChange)="onSelect($event)"
       >
     </mat-calendar>
-  </mat-card> 
+   </mat-card> 
 
   <mat-chip-listbox aria-label="Dog selection">
     <mat-chip-option>
@@ -30,7 +30,7 @@
   </mat-chip-listbox>
 </div>
 <div *ngIf="seleccionado"  > 
-  <mat-selection-list class="rightlist" #shoes [multiple]="false" >
+  <mat-selection-list class="rightlist" #horas [multiple]="false" >
     <mat-list-option *ngFor="let hora of horarioStr" [value]="hora">
       {{hora}}
     </mat-list-option>
@@ -38,9 +38,9 @@
 
   
   <p>
-    Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
+    Option selected: {{horas.selectedOptions.hasValue() ? horas.selectedOptions.selected[0].value : 'None'}}
   </p>
-  <button mat-button color="primary">Confirmar</button>
+  <button mat-button color="primary" (click)="postcita()">Confirmar</button>
 </div>
  
   <!--{{todayDate | date:'shortTime'}} 

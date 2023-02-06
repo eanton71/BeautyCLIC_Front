@@ -17,64 +17,146 @@
  * POST {año,mes,dia,hora,minutos,servicio,trabajador,cliente}
  * 
  */
-import { Component } from '@angular/core'; 
-import * as festivos from '../../assets/data/festivos.json'
-//import { Hora, Horario } from './horario';
-//import { Horario,Hora } from './horario';
+
+
+
+import { Component } from '@angular/core';
+import { CitaService } from '../services/cita.service';
+import { Cita, NuevaCita } from 'app/models/cita';
+import { Trabajador } from '../models/trabajador';
+import { Servicio } from '../models/servicio';
+const festivos = require('../../assets/data/festivos.json');
+const trabajadores = require('../../assets/data/trabajador.json');
 @Component({
   selector: 'app-calendar',
   templateUrl: 'calendar.component.html',
   styleUrls: ['calendar.component.scss'],
 })
-  
-export class CalendarComponent { 
-  mes = ["Enero", "Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+
+export class CalendarComponent {
+
+  constructor(private citaService: CitaService) {
+
+  }
+  ngOnInit() {
+    //carga el calendario con los dias elegibles  para dos meses
+    //g
+    //carga selectores segun trabajadores
+    
+  }
+//FIXME: como obtener una variable  de otro componenete
+  //servicio: Servicio = new Servicio();
+  trabajador: Trabajador[] = new Array();
+
+
+  mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   // binding (enlaza) en el template html 
   todayDate: Date = new Date();
   //
-  selectedDate: Date = new Date() ;
+  selectedDate: Date = new Date();
   //definir fecha minima y maxima para mostrar
-  minDate = new Date(2023, 0, 1);
-  maxDate = new Date(2023, 3, 31); 
-  dia: Date = new Date();
-  
-  horario = new Array(); 
-  horarioStr:string[] = [];
+  minDate = this.todayDate;
+  miliS = this.todayDate.getTime();
+  //1 minuto = 60000 miisegundos
+  add2Meses = 2 * 30 * 24 * 60 * 60000;
+  maxDate = new Date(this.miliS + this.add2Meses);
+  //dia: Date = new Date();
+
+  horario = new Array();
+  horarioStr: string[] = [];
   seleccionado = false;
   generarHorario() {
     this.horario = new Array();
     let hora: number = 9;
     let min: number = 0;
-    this.horario.push({ hora: 9, min: 0 }); 
-    for (let i = 1; i < 48; i++) { 
+    this.horario.push({ hora: 9, min: 0 });
+    for (let i = 1; i < 48; i++) {
       hora = hora + Math.floor((min + 15) / 60);
       min = (min + 15) % 60;
       this.horario.push({ hora: hora, min: min });
-     
     }
   }
+
+  anyo: number=0;
+  diames:number=0;
+  dia: number=0;
+  /**
+   * evento que se produce al seleccionar un dia
+   * @param event 
+   */
   onSelect(event: any) {
-    console.log(event);
-    this.selectedDate = event;
-    this.dia = event; 
-    
-    
-   /*
-    console.log(this.dia.getFullYear());
-    console.log(this.mes[this.dia.getMonth()]);
-    console.log(this.dia.getDate());
-    */
+   this.anyo=event.getFullYear();
+    this.mes= event.getMonth(); 
+    this.dia=event.getDate(); 
+
+
+    //FIXME: con el año,mes,dia, trabajador obtenemos sus citas 
+    //y generamos la lista de horas disponibles
+
+
     this.generarHorario();
-    console.log(this.horario);
-    this.horarioStr = this.horario.map(a => a.hora + ":"+a.min);
+    this.horarioStr = this.horario.map(a => a.hora + ":" + a.min);
     this.seleccionado = true;
+
   }
-  //dia: this.selectedDate.getDay()
+  postcita() {
+    //alert("post",this.anyo," " ,this.mes," " ,this.dia);
+  }
+
+  nofestivos: boolean[] = new Array();
+  /**
+   * para deshabilitar dias y no se puedan clicar
+   */
   deshabilitaDias = (d: Date): boolean => {
-    for (let i = 0; i < 10;i++){}
+    //this.nofestivos = festivos.every((d.getDay() != festivos.dia));
     return (d.getDay() !== 0 && d.getDay() !== 6);
   }
+
+
+
+  /**
+   * 
+   * 
   
+    private getProducts(): void {
+      this.productService.getProducts().subscribe(res => this.products = res);
+    }
+  
+    add(): void {
+  
+      const { name, price, description } = this.productForm.getRawValue();
+  
+      this.productForm.reset();
+  
+      this.productService.addNewProduct(name, price, description).subscribe(result => {
+  
+        if (result) { 
+          this.getProducts();
+        }
+      })
+  
+    }
+  
+    deleteProduct(index: number): void {
+      this.productService.deleteProduct(this.products[index]._id).subscribe(result => {
+        if (result) {
+          this.getProducts();
+        }
+      })
+    }
+    updateProduct(index: number): void {
+      const { name, price, description } = this.productForm.getRawValue();
+      this.productService.updateProduct(this.products[index]._id, name, price, description).subscribe(result => {
+        if (result) {
+          this.productForm.reset();
+          this.getProducts();
+        }
+      })
+    }
+   */
+
+
+
   /*
   myFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
