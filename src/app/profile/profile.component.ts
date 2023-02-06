@@ -24,7 +24,7 @@ export class ProfileComponent {
 
     this.username = this.logreg.userName !== null?this.logreg.userName:'';
     this.email = this.logreg.userEmail !== null?this.logreg.userEmail:'';
-    this.image = this.logreg.userPicture !== null?this.logreg.userPicture:'';
+    //this.image = this.logreg.userPicture !== null?this.logreg.userPicture:'';
 
     if(this.image === 'no_image.png'){
       this.path = this.path + this.image;
@@ -44,7 +44,7 @@ export class ProfileComponent {
         console.log(file);
         if(result){
           //this.path = '';
-          this.path = '/assets/image/'+this.logreg.userId+'/'+this.logreg.userPicture;
+         // this.path = '/assets/image/'+this.logreg.userId+'/'+this.logreg.userPicture;
         }
       })
     }

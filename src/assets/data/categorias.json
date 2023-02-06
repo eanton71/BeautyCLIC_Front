@@ -1,0 +1,22 @@
+[
+    {
+        "nombre": "Cuidados corporales", 
+        "descripcion": "", 
+        "foto": "/img/categorias/cuidados-corporales.png"
+    },
+    {
+        "nombre": "Pack Relax", 
+        "descripcion": "", 
+        "foto": "/img/categorias/pack-relax.png"
+    },
+    {
+        "nombre": "Cuidados faciales", 
+        "descripcion": "", 
+        "foto": "/img/categorias/cuidados-faciales.png"
+    },
+    {
+        "nombre": "Depilación", 
+        "descripcion": "", 
+        "foto": "/img/categorias/depilacion.png"
+    }
+]

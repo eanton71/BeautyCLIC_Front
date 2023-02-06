@@ -16,46 +16,32 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 
-import { Cita,NuevaCita } from '../models/cita';
+ 
 import { Trabajador } from '../models/trabajador';
+import { Categoria } from '../models/categoria';
 @Injectable({
   providedIn: 'root'
 })
-export class CitaService {
+export class ServiciosService {
   private port = 3000;
   private urlgetTrabajadoresServicio = 'http://localhost:' + this.port + '/api/get_trabajadores_servicio';
-  private urlgetCitasTrabajadorDia = 'http://localhost:' + this.port + '/api/get_citas_trabajador_dia';
-  private urlgetCitasCliente = 'http://localhost:' + this.port + '/api/get_citas_cliente';
-  private urlpost = 'http://localhost:' + this.port + '/api/post_cita_trabajador_cliente';
-
+  private urlgetCategorias = 'http://localhost:' + this.port + '/api/get_categorias';
+   
   //TODO: revisar para modificar citas y anularlas
   //private urldelete = 'http://localhost:' + this.port + '/api/delete_product';
- // private urlput = 'http://localhost:' + this.port + '/api/put_product';
+  // private urlput = 'http://localhost:' + this.port + '/api/put_product';
   constructor(private httpClient: HttpClient) { }
 
   //trabajadores que realizan un servicio determinado
   //
   //retorna array de {nombre, foto, horario {}} 
   getTrabajadoresServicio(): Observable<Trabajador[]> {
-    return this.httpClient.get<Trabajador[]>(this.urlgetTrabajadoresServicio+"/123").pipe(catchError(this.handleError<any>('getCitasServicio')));
+    return this.httpClient.get<Trabajador[]>(this.urlgetTrabajadoresServicio ).pipe(catchError(this.handleError<any>('getCitasServicio')));
   }
-
-//Obtener lista de citas por dia y  trabajador
-  getCitasTrabajadorDia(): Observable<Cita[]> {
-    return this.httpClient.get<Cita[]>(this.urlgetCitasTrabajadorDia, { observe: 'body', params:{} }).pipe(catchError(this.handleError<any>('getCitasServicio')));
+  getCategorias(): Observable<Categoria[]> {
+    return this.httpClient.get<Categoria[]>(this.urlgetCategorias).pipe(catchError(this.handleError<any>('getCategorias')));
   }
-
-  //Mostrar citas del cliente despues de loguear
-  getCitasCliente(): Observable<Cita[]> {
-    return this.httpClient.get<Cita[]>(this.urlgetCitasCliente).pipe(catchError(this.handleError<any>('getCitasCliente')));
-  }
-  //guardar cita (fecha,hora, servicio,trabajdor,cliente)
-  addCita(cita:NuevaCita): Observable<object> {
-
-    //const data = { name: name, price: price, description: description };
-    //CORRECCION {data} en windows,    {info:data} en MAC
-    return this.httpClient.post(this.urlpost, { info: cita }, { observe: 'body' }).pipe(catchError(this.handleError<any>('addCita')));
-  }
+   
   private handleError<T>(operation = 'opearation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
