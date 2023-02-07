@@ -3,34 +3,42 @@
     <div class="col-sm-6 col-md-8">
 
 
-      <div class="modal-content">
-        <div class="modal-body">
-        <form method="POST" id="formulario" enctype="multipart/form-data" >
+      <div class="card">
+        <div class="card-body">
+        <form action="/send-email" method="POST"  >
           <h4> ¿Tienes alguna duda? Contacta con nosotros</h4>
-          <label for="full-name">Nombre y apellido:</label >
-      <input type="text" name="Nombre y apellido" id="full-name" placeholder="nombre y apellido" class="form-control" required="">
+          <div class="form-group">
+            <nav>Nombre y apellido</nav>
+                        <input type="text" name="name" class="form-control"
+                        placeholder="Name" autofocus>
+                    </div>
+                    <div class="form-group">
+                      <nav>Email</nav>
+                      <input type="text" name="email" class="form-control"
+                      placeholder="Email" >
+                  </div>
 
-      <label for="email">Email:</label>
-      <input type="email" name="email" placeholder="su email de contacto" class="form-control" required="" >
+                  <div class="form-group">
+                    <nav>Telefono</nav>
+                    <input type="text" name="phone" class="form-control"
+                    placeholder="Phone" >
+                </div>
+                <div class="form-group">
+                  <nav>Deja aqui tu comentario:</nav>
+              <textarea name="message" rows="4" class="form-control"
+                      placeholder="Message"></textarea>
+              </div>
 
-      <label for="telephone">Numero de telefono:</label>
-      <input type="tel" name="telefono de contacto" id="telephone" placeholder="  --- --- ---" class="form-control" required="">
-
-      <label for ="old user">¿ Ha visitado anteriormente nuestro centro? </label>
-      <input type="text" name="clienta nueva" placeholder=" si / no" class="form-control">
-
-      <!-- <label for="contact mode">¿Prefiere que contactemos telefonicamente o por email?:</label>
-      <input type="text" name="Preferencia de contacto" placeholder="su preferencia: telefono o email" class="form-control"/>
-      -->
-      <label for="comments">Comentarios </label>
-      <textarea name="mensaje" ml>  </textarea>
-
+            <br>
+      <input type="checkbox" style="display:block;">
       <h3 >Acepto recibir información comercial, incluso por correo electrónico.</h3>
       <h3 class="alternativo"  routerLink="/politicaprivacidad">He leido y acepto la politica de privacidad </h3>
       <a routerLinkActive="../politicaprivacidad/" He leído y acepto la   Política de Privacidad ></a>
 
-       <button class="btn btn-warning" id="my-form-button" type="submit">ACEPTO Y ENVIO</button>
-      <p id="my-form-status"></p>
+
+      <button class=" btn btn-warning btn-block">
+        ACEPTO Y ENVIO
+        </button>
 
 
       </form>
@@ -51,7 +59,13 @@
          <!-- <div id="map"></div> -->
                   <div class ="horarios">
           <a>➽ Nos encontramos en c/ Joaquín Costa, 34 Terrasa</a>
-          <h5>⌚ Abierto de 09:00 a.m. hasta 20:00 p.m.</h5>
+          <br>
+          <br>
+          <h5>También puedes contactar con nosotros en:</h5>
+         Nuestro nº de teléfono 633.33.33.33: <a href="tel:63333333">☎ Teléfono </a><br>
+         <p> Enviarnos un correo electrónico:
+         <a  href="mailto: beautys@gmail.com">click aqui✉</a> </p>
+          <h4>⌚ Abierto de 09:00 a.m. hasta 20:00 p.m.</h4>
          </div>
       </div>
 
