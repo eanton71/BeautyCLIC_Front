@@ -3,6 +3,6 @@ export interface Trabajador {
     nombre: string;
     apellidos: string;
     email: string; 
-    info: "";
-    foto: "";
+    info: string;
+    foto: string;
 }
