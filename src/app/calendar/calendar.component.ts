@@ -22,11 +22,14 @@
 
 import { Component } from '@angular/core';
 import { CitaService } from '../services/cita.service';
+import { ServiciosService } from '../services/servicios.service';
 import { Cita, NuevaCita } from 'app/models/cita';
 import { Trabajador } from '../models/trabajador';
 import { Servicio } from '../models/servicio';
+import { ActivatedRoute } from '@angular/router';
+
 const festivos = require('../../assets/data/festivos.json');
-const trabajadores = require('../../assets/data/trabajador.json');
+//const trabajadores = require('../../assets/data/trabajador.json');
 @Component({
   selector: 'app-calendar',
   templateUrl: 'calendar.component.html',
@@ -35,18 +38,18 @@ const trabajadores = require('../../assets/data/trabajador.json');
 
 export class CalendarComponent {
 
-  constructor(private citaService: CitaService) {
+  constructor(private citaService: CitaService, private serviciosService: ServiciosService, private activatedRoute: ActivatedRoute) {
 
   }
   ngOnInit() {
     //carga el calendario con los dias elegibles  para dos meses
     //g
-    //carga selectores segun trabajadores
+    //this.get_trabajadores_servicio();
     
   }
 //FIXME: como obtener una variable  de otro componenete
   //servicio: Servicio = new Servicio();
-  trabajador: Trabajador[] = new Array();
+  trabajadores: Trabajador[] = new Array();
 
 
   mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -113,7 +116,9 @@ export class CalendarComponent {
   }
 
 
-
+  private get_trabajadores_servicio = (id:string) => {
+    this.serviciosService.getTrabajadoresServicio(id).subscribe(res => this.trabajadores = res);
+}
   /**
    * 
    * 

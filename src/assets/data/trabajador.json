@@ -1,59 +1,59 @@
 [
     {
         "nombre": "Ana",
-        "apellidos": "Cornejo",
-        "correo electronico": "ana@beauty.com",
-        "info":"",
+        "apellidos": "Cornejo", 
+        "email": "ana@beauty.com",
+        "info":"", 
         "foto": "/img/equipo/chica.png"
 
     },
     {
         "nombre": "Maria",
-        "apellidos": "Ruiz",
-        "correo electronico": "maria@beauty.com",
-        "info":"",
+        "apellidos": "Ruiz", 
+        "email": "maria@beauty.com",
+        "info":"",  
         "foto": "/img/equipo/chica1.png"
     },
     {
         "nombre": "Luisa",
         "apellidos": "Gomez",
-        "correo electronico": "luisa@beauty.com",
+        "email": "luisa@beauty.com",
         "info":"" ,
         "foto": "/img/equipo/chica2.png"
     },
     {
         "nombre": "Maria",
-        "apellidos": "Quero",
-        "correo electronico": "quero@beauty.com",
-        "info":"",
+        "apellidos": "Quero", 
+        "email": "quero@beauty.com",
+        "info":"",  
         "foto": "/img/equipo/chica3.png"
     },
     {
         "nombre": "Mirta",
-        "apellidos": "Suarez",
+        "apellidos": "Suarez", 
         "correo electronico": "mirta@beauty.com",
-        "info":"",
+        "info":"", 
         "foto": "/img/equipo/chica4.jpeg"
     },
     {
         "nombre": "Miquel",
-        "apellidos": "Lamas",
-        "correo electronico": "remedios@beauty.com",
-        "info":"",
-        "foto": "/img/equipo/chica5.jpeg"
+        "apellidos": "Lamas", 
+        "email": "remedios@beauty.com",
+        "info":"", 
+        "foto": "/img/equipo/chica5.jpeg"  
     },
     {
         "nombre": "Rodolfo",
-        "apellidos": "Reyes Serra",
-        "correo electronico": "rodolfo@beauty.com",
-        "info":"",
+        "apellidos": "Reyes Serra", 
+        "email": "rodolfo@beauty.com",
+        "info":"",  
         "foto": "/img/equipo/chico.png"
     },
     {
         "nombre": "Baldomero",
-        "apellidos": "Rosales",
-        "correo electronico": "Baldomero@beauty.com",
-        "info":"",
-        "foto": "/img/equipo/chico2.png"
+        "apellidos": "Rosales", 
+        "email": "Baldomero@beauty.com",
+        "info":"", 
+        "foto": "/img/equipo/chico2.png"  
     }
 ]

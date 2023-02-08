@@ -17,8 +17,12 @@ const routes: Routes = [
   { path: "home", component: CategoriesComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'politicaprivacidad', component: PoliticaprivacidadComponent },
-  { path: 'calendar', component: CalendarComponent },
-  { path: 'team', component: TeamComponent},
+ 
+  //requiere el id de los servicios
+  { path: 'calendar/:id', component: CalendarComponent },
+  { path: 'servicios', component: ServiciosComponent },
+  { path: 'team', component: TeamComponent },
+ 
   { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: '**', pathMatch: 'full', redirectTo: '/home' },
 
