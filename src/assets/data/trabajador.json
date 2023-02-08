@@ -1,17 +1,17 @@
 [
     {
         "nombre": "Ana",
-        "apellidos": "Cornejo",
+        "apellidos": "Cornejo", 
         "email": "ana@beauty.com",
         "info":"", 
         "foto": "/img/equipo/chica.png"
-        
+
     },
     {
         "nombre": "Maria",
-        "apellidos": "Ruiz",
+        "apellidos": "Ruiz", 
         "email": "maria@beauty.com",
-        "info":"", 
+        "info":"",  
         "foto": "/img/equipo/chica1.png"
     },
     {
@@ -19,41 +19,41 @@
         "apellidos": "Gomez",
         "email": "luisa@beauty.com",
         "info":"" ,
-        "foto": "/img/equipo/chica2.png" 
+        "foto": "/img/equipo/chica2.png"
     },
     {
         "nombre": "Maria",
-        "apellidos": "Quero",
+        "apellidos": "Quero", 
         "email": "quero@beauty.com",
-        "info":"", 
+        "info":"",  
         "foto": "/img/equipo/chica3.png"
     },
     {
         "nombre": "Mirta",
-        "apellidos": "Suarez",
-        "email": "mirta@beauty.com",
+        "apellidos": "Suarez", 
+        "correo electronico": "mirta@beauty.com",
         "info":"", 
         "foto": "/img/equipo/chica4.jpeg"
     },
     {
-        "nombre": "Remedios",
-        "apellidos": "Lamas",
+        "nombre": "Miquel",
+        "apellidos": "Lamas", 
         "email": "remedios@beauty.com",
         "info":"", 
-        "foto": "/img/equipo/chica5.jpeg" 
+        "foto": "/img/equipo/chica5.jpeg"  
     },
     {
         "nombre": "Rodolfo",
-        "apellidos": "Reyes Serra",
+        "apellidos": "Reyes Serra", 
         "email": "rodolfo@beauty.com",
-        "info":"", 
+        "info":"",  
         "foto": "/img/equipo/chico.png"
     },
     {
         "nombre": "Baldomero",
-        "apellidos": "Rosales",
+        "apellidos": "Rosales", 
         "email": "Baldomero@beauty.com",
         "info":"", 
-        "foto": "/img/equipo/chico2.png" 
+        "foto": "/img/equipo/chico2.png"  
     }
 ]

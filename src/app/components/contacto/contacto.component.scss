@@ -5,7 +5,7 @@
       overflow: auto;
       align-self:flex-end;
       flex-wrap: wrap;
-
+      cursor: pointer;
 
     }
 .col-sm-6 {
@@ -50,6 +50,7 @@
       }
       a{
       cursor:pointer;
+      font-size: 14px;
       }
       textarea{
       height: 120px;
