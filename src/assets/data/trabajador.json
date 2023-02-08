@@ -1,14 +1,59 @@
 [
-{
-    "nombre":"",
-    "apellidos":"",
-    "correo electronico":"",
-    "telefono":"",
-    "foto":"",
-    "password":"",
-    "horario":[{"monday":[10 ]}]
-    
-}
+    {
+        "nombre": "Ana",
+        "apellidos": "Cornejo", 
+        "email": "ana@beauty.com",
+        "info":"", 
+        "foto": "/img/equipo/chica.png"
 
-
+    },
+    {
+        "nombre": "Maria",
+        "apellidos": "Ruiz", 
+        "email": "maria@beauty.com",
+        "info":"",  
+        "foto": "/img/equipo/chica1.png"
+    },
+    {
+        "nombre": "Luisa",
+        "apellidos": "Gomez",
+        "email": "luisa@beauty.com",
+        "info":"" ,
+        "foto": "/img/equipo/chica2.png"
+    },
+    {
+        "nombre": "Maria",
+        "apellidos": "Quero", 
+        "email": "quero@beauty.com",
+        "info":"",  
+        "foto": "/img/equipo/chica3.png"
+    },
+    {
+        "nombre": "Mirta",
+        "apellidos": "Suarez", 
+        "correo electronico": "mirta@beauty.com",
+        "info":"", 
+        "foto": "/img/equipo/chica4.jpeg"
+    },
+    {
+        "nombre": "Miquel",
+        "apellidos": "Lamas", 
+        "email": "remedios@beauty.com",
+        "info":"", 
+        "foto": "/img/equipo/chica5.jpeg"  
+    },
+    {
+        "nombre": "Rodolfo",
+        "apellidos": "Reyes Serra", 
+        "email": "rodolfo@beauty.com",
+        "info":"",  
+        "foto": "/img/equipo/chico.png"
+    },
+    {
+        "nombre": "Baldomero",
+        "apellidos": "Rosales", 
+        "email": "Baldomero@beauty.com",
+        "info":"", 
+        "foto": "/img/equipo/chico2.png"  
+    }
 ]

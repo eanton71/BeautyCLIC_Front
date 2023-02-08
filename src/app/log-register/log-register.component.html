@@ -1,0 +1,192 @@
+<!-- Pills navs -->
+
+<section class="w-100 p-4 d-flex justify-content-center pb-4">
+    <div style="width: 26rem;">
+      <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="btn btn-warning btn-lg" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+            aria-controls="pills-login" aria-selected="true">Login</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+            aria-controls="pills-register" aria-selected="false">Registro</a>
+        </li>
+      </ul>
+      <!-- Pills navs -->
+
+      <!-- Pills content -->
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+          <form [formGroup]="loginForm" (ngSubmit)="sendLogin()">
+            <div class="text-center mb-3">
+              <p>Sign in with:</p>
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-google"></i>
+              </button>
+
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-github"></i>
+              </button>
+            </div>
+
+            <p class="text-center">or:</p>
+            <p class="warning-msg" *ngIf="showWarning">correo electronico o password incorrectos</p>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="loginName" class="form-control" formControlName="eou">
+              <label class="form-label" for="loginName">Correo electronico</label>
+              <div class="form-notch">
+                <div class="form-notch-leading" style="width: 9px;"></div>
+                <div class="form-notch-middle" style="width: 114.4px;"></div>
+                <div class="form-notch-trailing"></div>
+              </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="loginPassword" class="form-control" formControlName="password" />
+              <label class="form-label" for="loginPassword">Password</label>
+              <div class="form-notch">
+                <div class="form-notch-leading" style="width: 9px;"></div>
+                <div class="form-notch-middle" style="width: 64.8px;"></div>
+                <div class="form-notch-trailing"></div>
+              </div>
+            </div>
+
+            <!-- 2 column grid layout -->
+            <div class="row mb-4">
+              <div class="col-md-6 d-flex justify-content-center">
+                <!-- Checkbox -->
+                <div class="form-check mb-3 mb-md-0">
+                  <input class="form-check-input" type="checkbox" value="" id="loginCheck" checked />
+                  <label class="form-check-label" for="loginCheck"> Recordar contraseña </label>
+                </div>
+              </div>
+
+              <div class="col-md-6 d-flex justify-content-center">
+                <!-- Simple link -->
+                <a href="#!">¿Olvidaste la contraseña?</a>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Entrar</button>
+
+          </form>
+        </div>
+        <div class="tab-pane fade text-center" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+          <form [formGroup]="registerForm" (ngSubmit)="sendRegister()">
+            <div class="text-center mb-3">
+              <p>Sign up with:</p>
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-google"></i>
+              </button>
+
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-github"></i>
+              </button>
+            </div>
+
+            <p class="text-center">or:</p>
+
+            <!-- Name input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="registerNombre" class="form-control" formControlName="nombre" />
+              <label class="form-label" for="registerNombre">Nombre</label>
+              <div class="form-notch">
+                <div class="form-notch-leading" style="width: 9px;">
+                </div>
+                <div class="form-notch-middle" style="width: 42.4px;">
+                </div>
+                <div class="form-notch-trailing"></div>
+              </div>
+            </div>
+
+            <!-- Username input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="registerApellidos" class="form-control" formControlName="apellidos" />
+              <label class="form-label" for="registerApellidos">Apellidos</label>
+              <div class="form-notch">
+                <div class="form-notch-leading" style="width: 9px;"></div>
+                <div class="form-notch-middle" style="width: 66.4px;"></div>
+                <div class="form-notch-trailing"></div>
+              </div>
+            </div>
+            <!-- Telefono input -->
+            <div class="form-outline mb-4">
+              <input type="number" id="registerTelefono" class="form-control" formControlName="telefono" />
+              <label class="form-label" for="registerTelefono">Telefono</label>
+              <div class="form-notch">
+                <div class="form-notch-leading" style="width: 9px;"></div>
+                <div class="form-notch-middle" style="width: 40px;"></div>
+                <div class="form-notch-trailing"></div>
+              </div>
+            </div>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" id="registerEmail" class="form-control" formControlName="email" />
+              <label class="form-label" for="registerEmail">Correo electronico</label>
+              <div class="form-notch">
+                <div class="form-notch-leading" style="width: 9px;"></div>
+                <div class="form-notch-middle" style="width: 40px;"></div>
+                <div class="form-notch-trailing"></div>
+              </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="registerPassword" class="form-control" formControlName="password" />
+              <label class="form-label" for="registerPassword">Password</label>
+              <div class="form-notch">
+                <div class="form-notch-leading" style="width: 9px;"></div>
+                <div class="form-notch-middle" style="width: 64.8px;"></div>
+                <div class="form-notch-trailing"></div>
+              </div>
+            </div>
+
+            <!-- Repeat Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="registerRepeatPassword" class="form-control" formControlName="passrepeat" />
+              <small class="text-danger" *ngIf="registerForm.controls['password'].value !== registerForm.controls['passrepeat'].value">Passwords are not equals</small>
+              <label class="form-label" for="registerRepeatPassword">Repite el password</label>
+              <div class="form-notch">
+                <div class="form-notch-leading" style="width: 9px;"></div>
+                <div class="form-notch-middle" style="width: 106.4px;"></div>
+                <div class="form-notch-trailing"></div>
+              </div>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-check d-flex justify-content-center mb-4">
+              <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                aria-describedby="registerCheckHelpText" />
+              <label class="form-check-label" for="registerCheck">
+                He leido y estoy de  acuerdo con los terminos
+              </label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-3" [disabled]="checkSign()">Entrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Pills content -->
+

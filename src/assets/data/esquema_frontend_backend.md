@@ -63,23 +63,26 @@ retorna:dias, horas, trabajadores;
 **_ cliente.model.js
 **_ trabajador.model.js
 **_ servicio.model.js
-**_ citas.js
+**_ citas.model.js
+**_ contacto.model.js
 * <&folder>controllers
 **[#Orange]: gestiona las funciones
  que se incluyen en 
-las peticiones
-;
+las peticiones;
 **_ cliente.controller.js
 **_ trabajador.controller.js
 **_ servicio.controller.js
 **_ citas.controller.js
+**_ contacto.controller.js
 * <&folder>routes 
-**[#Orange] recibe las peticiones
-**_ cliente.route.js
+**[#Orange] recibe las peticiones HTTP
+**_ citas.route.js
 **_ trabajador.route.js
 **_ servicio.route.js
 **_ citas.route.js
-
+**_ contacto.route.js
+* <&folder> middlewares
+**[#Orange] gestionar autenticacion
 *_ index.js
 *_ package.json
 @endmindmap

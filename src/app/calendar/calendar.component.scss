@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    width:1440px;  
+    margin: 100px;
+}
+
+.calendar-card {
+    min-width: 400px;
+     
+}
+.rightlist{
+    min-width: 400px;
+    max-height:400px;
+    max-width: 300px;
+    width: 200px;
+    overflow: auto;
+}
+.horario-table {
+    min-width: 300px;
+    max-width: 400px; 
+    max-height: 500px;
+    overflow: auto; 
+}
