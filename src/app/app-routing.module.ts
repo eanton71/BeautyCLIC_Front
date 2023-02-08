@@ -8,7 +8,7 @@ import { LogRegisterComponent } from './log-register/log-register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { TeamComponent } from './team/team.component';
-
+import { ServiciosComponent } from './servicios/servicios.component';
 const routes: Routes = [
   { path: 'login', component: LogRegisterComponent, pathMatch: 'full' },
   { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
