@@ -2,29 +2,30 @@
     {
         "nombre": "Ana",
         "apellidos": "Cornejo",
-        "correo electronico": "ana@beauty.com",
+        "email": "ana@beauty.com",
         "info":"",
         "foto": "/img/equipo/chica.png"
+
 
     },
     {
         "nombre": "Maria",
         "apellidos": "Ruiz",
-        "correo electronico": "maria@beauty.com",
+        "email": "maria@beauty.com",
         "info":"",
         "foto": "/img/equipo/chica1.png"
     },
     {
         "nombre": "Luisa",
         "apellidos": "Gomez",
-        "correo electronico": "luisa@beauty.com",
+        "email": "luisa@beauty.com",
         "info":"" ,
         "foto": "/img/equipo/chica2.png"
     },
     {
         "nombre": "Maria",
         "apellidos": "Quero",
-        "correo electronico": "quero@beauty.com",
+        "email": "quero@beauty.com",
         "info":"",
         "foto": "/img/equipo/chica3.png"
     },
@@ -38,21 +39,21 @@
     {
         "nombre": "Miquel",
         "apellidos": "Lamas",
-        "correo electronico": "remedios@beauty.com",
+        "email": "remedios@beauty.com",
         "info":"",
         "foto": "/img/equipo/chica5.jpeg"
     },
     {
         "nombre": "Rodolfo",
         "apellidos": "Reyes Serra",
-        "correo electronico": "rodolfo@beauty.com",
+        "email": "rodolfo@beauty.com",
         "info":"",
         "foto": "/img/equipo/chico.png"
     },
     {
         "nombre": "Baldomero",
         "apellidos": "Rosales",
-        "correo electronico": "Baldomero@beauty.com",
+        "email": "Baldomero@beauty.com",
         "info":"",
         "foto": "/img/equipo/chico2.png"
     }

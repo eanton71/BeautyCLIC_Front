@@ -6,7 +6,7 @@
 
 [https://material.angular.io/guide/getting-started](https://material.angular.io/guide/getting-started)
 
-## Necesario para leer archivos JSON en Angular
+## Por si acaso es necesario leer archivos JSON en Angular
 Añadido archivo ./src/app/json-typings.d.ts
 ```ts
 declare module "*.json" {
@@ -14,6 +14,8 @@ declare module "*.json" {
   export default value;
 }
 ```
+
+
 ------------
 ----------
 ## Peticiones HTTP

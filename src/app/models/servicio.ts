@@ -1,14 +1,10 @@
-export class Servicio { 
-    nombre: string;
-    //descripcion: string;
+export interface Servicio { 
+    _id: string;
+    nombre: string; 
     duracion: number;
-    //img: string;
-    //categoria: string;
-    constructor(nombre: string,duracion: number) {
-        this.nombre = nombre;
-        //this.descripcion = descripcion;
-        this.duracion = duracion;
-       // this.img = img;
-       // this.categoria = categoria;
-    }
+    descripcion: string;
+    precio: number; 
+    //ObjectID ref Categoria
+    categoria: string; 
+    foto: string;
 }

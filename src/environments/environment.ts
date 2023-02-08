@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  url_public: 'http://localhost:4200/public',
+  url_public: 'http://localhost:4200/assets',
   url_login:'http://localhost:3000/api/login-user',
   url_register:'http://localhost:3000/api/register-user',
   url_update_image:'http://localhost:3000/api/upload/user-pic',
