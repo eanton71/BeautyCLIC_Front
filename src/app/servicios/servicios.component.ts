@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Categoria } from 'app/models/categoria';
+import { Servicio } from 'app/models/servicio';
 import { ServiciosService } from 'app/services/servicios.service';
 import { environment } from '../../environments/environment';
 
@@ -12,6 +13,7 @@ import { environment } from '../../environments/environment';
 export class ServiciosComponent {
   serverimg = environment.url_public;
   categorias: Categoria[] = [];
+  servicios: Servicio[] = [];
   urlimg: string[] = [];
   constructor(private serviciosService: ServiciosService) {
 
@@ -22,5 +24,9 @@ export class ServiciosComponent {
   }
   private getCategorias(): void {
     this.serviciosService.getCategorias().subscribe(res => this.categorias = res);
+  }
+  public getServicios(id: string): void{
+    this.serviciosService.getServicios(id).subscribe(res => this.servicios = res);
+
   }
 }
