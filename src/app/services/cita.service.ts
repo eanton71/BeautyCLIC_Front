@@ -50,7 +50,7 @@ export class CitaService {
     return this.httpClient.get<Cita[]>(this.urlgetCitasCliente).pipe(catchError(this.handleError<any>('getCitasCliente')));
   }
   //guardar cita (fecha,hora, servicio,trabajdor,cliente)
-  addCita(cita:NuevaCita): Observable<object> {
+  guardarCita(cita:NuevaCita): Observable<object> {
 
     //const data = { name: name, price: price, description: description };
     //CORRECCION {data} en windows,    {info:data} en MAC
