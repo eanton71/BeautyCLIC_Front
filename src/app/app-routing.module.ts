@@ -13,13 +13,13 @@ const routes: Routes = [
   { path: 'login', component: LogRegisterComponent, pathMatch: 'full' },
   { path: 'profile', component: ProfileComponent, pathMatch: 'full', canActivate: [AuthGuard] },
 
-/**FIXME pagina principal */
+/**FIXME pagina principal */  
   { path: "home", component: CategoriesComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'politicaprivacidad', component: PoliticaprivacidadComponent },
  
   //requiere el id de los servicios
-  { path: 'calendar/:id', component: CalendarComponent },
+  { path: 'calendar/:id', component: CalendarComponent, canActivate: [AuthGuard] },
   { path: 'servicios', component: ServiciosComponent },
   { path: 'team', component: TeamComponent },
  

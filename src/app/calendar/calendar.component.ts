@@ -26,10 +26,12 @@ import { ServiciosService } from '../services/servicios.service';
 import { Cita, NuevaCita } from 'app/models/cita';
 import { Trabajador } from '../models/trabajador';
 import { Servicio } from '../models/servicio';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { environment } from '../../environments/environment';
+import { ActivatedRoute } from '@angular/router'; 
+import { environment } from '../../environments/environment'; 
+import { Cliente } from '../models/cliente';
+import { HorizontalConnectionPos } from '@angular/cdk/overlay';
+import { HttpSentEvent } from '@angular/common/http';
+import { MatSelectionListChange } from '@angular/material/list';
 
 
 const festivos = require('../../assets/data/festivos.json');
@@ -41,11 +43,14 @@ const festivos = require('../../assets/data/festivos.json');
 })
 
 export class CalendarComponent {
+
+
+  
+  id_cliente = "";
   serverimg = environment.url_public;
   id_servicio = "";
   trabajadores: Trabajador[] = new Array();
-  mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-
+ 
   selectedDate: any;
   //definir fecha minima y maxima para mostrar
   minDate = new Date();
@@ -53,8 +58,8 @@ export class CalendarComponent {
   //1 minuto = 60000 miisegundos
   add2Meses = 2 * 30 * 24 * 60 * 60000;
   maxDate = new Date(this.miliS + this.add2Meses);
-  //dia: Date = new Date();
-
+  selTrabajador: string="";
+   
   constructor(private citaService: CitaService, private serviciosService: ServiciosService, private route: ActivatedRoute) {
 
   }
@@ -65,42 +70,82 @@ export class CalendarComponent {
 
     this.get_trabajadores_servicio(this.id_servicio);
     console.log("Trabajadores: ", this.trabajadores);
+    //this.selected = this.trabajadores[0].nombre;
+    this.getLocalStorageID();
+     
+  }
+  private getLocalStorageID(): void {
+
+    let usr: Cliente = JSON.parse(localStorage.getItem('user')!);
+    this.id_cliente = usr._id;
+     
   }
 
-
-  
-
-
-  
-  
+   
 
   anyo: number = 0;
   mesN: number = 0;
+  mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
   dia: number = 0;
-   
-  onSelect(event: any) {
+  hora: number = 0;
+  min: number = 0;
+  onSelectCalendar(event: any) {
     this.selectedDate=event;
-    this.anyo = event.getFullYear() ;
-    this.mesN = event.getMonth();
-    this.dia = event.getDate();
+    this.anyo = this.selectedDate.getFullYear() ;
+    this.mesN = this.selectedDate.getMonth();
+    this.dia = this.selectedDate.getDate();
 
-    console.log(event);
-    console.log(this.anyo, " ", this.mesN, " ", this.dia);
-    
-
+  
     //y generamos la lista de horas disponibles
-
-
     this.generarHorario();
     this.horarioStr = this.horario.map(a => a.hora + ":" + a.min);
     this.horariocreado = true;
 
   }
+  onSelectListChange($event: MatSelectionListChange) {
+    let valor = $event.source.selectedOptions.selected[0].value;
+    let indice = this.horarioStr.indexOf(valor);
+    console.log(this.horario[indice]);
+    this.hora = this.horario[indice].hora;
+    this.min = this.horario[indice].min;
 
-
-  postcita() {
-    //alert("post",this.anyo," " ,this.mes," " ,this.dia);
+  }
+   
+  cita: NuevaCita | undefined;
+  //console.log(this.selTrabajador);
+  guardarcita() {
+    alert("post: año" + this.anyo + ", mes: " + this.mesN + " ,dia: " + this.dia +
+      " ,idcliente: " + this.id_cliente +
+      ", idtrabajador: " + this.selTrabajador +
+      ", idservicio: " + this.id_servicio);
+    /* let t : Trabajador;
+    try {
+      t = this.trabajadores.find(t => t.nombre = this.selTrabajador);
+    } catch (error) {
+      console.log(error);
+    }
+    this.cita = new NuevaCita(
+      this.anyo,
+      this.mesN,
+      this.dia,
+      this.hora,
+      this.min,
+      this.id_servicio,
+      60,
+      this.trabajadores.find(t => t.nombre = this.selTrabajador),
+      this.id_cliente); */
+  /* this.citaService.guardarCita(new NuevaCita(
+    this.anyo,
+      this.mesN,
+      this.dia,
+      this.hora,
+      this.min,
+      this.id_servicio,
+      60,
+      this.trabajadores.find(t => t.nombre = this.selTrabajador),
+      this.id_cliente))
+      */
   }
 
   nofestivos: boolean[] = new Array();
@@ -132,28 +177,8 @@ export class CalendarComponent {
     this.serviciosService.getTrabajadoresServicio(id).subscribe(res => this.trabajadores = res);
   }
   /**
-   * 
-   * 
-  
-    private getProducts(): void {
-      this.productService.getProducts().subscribe(res => this.products = res);
-    }
-  
-    add(): void {
-  
-      const { name, price, description } = this.productForm.getRawValue();
-  
-      this.productForm.reset();
-  
-      this.productService.addNewProduct(name, price, description).subscribe(result => {
-  
-        if (result) { 
-          this.getProducts();
-        }
-      })
-  
-    }
-  
+    
+     
     deleteProduct(index: number): void {
       this.productService.deleteProduct(this.products[index]._id).subscribe(result => {
         if (result) {
@@ -172,7 +197,7 @@ export class CalendarComponent {
     }
    */
 
-
+    
 
   /*
   myFilter = (d: Date | null): boolean => {

@@ -10,22 +10,29 @@
     [maxDate]="maxDate"
     [dateFilter]="deshabilitaDias" 
     [selected]="selectedDate" 
-    (selectedChange)="onSelect($event)"     
+    (selectedChange)="onSelectCalendar($event)"     
       >
     </mat-calendar>
    </mat-card> 
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select an option</mat-label>
+    <mat-select [(value)]="selTrabajador">
+  
+      <mat-option *ngFor="let trabajador of trabajadores" value="{{trabajador._id}}">
+        {{trabajador.nombre}}
+        <img class="chipimg" src={{this.serverimg+trabajador.foto}} alt="Foto de {{trabajador.nombre}}" />
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p>Seleccionado: {{selTrabajador}}</p>
  
-  <mat-chip-listbox aria-label="Dog selection">
-    <mat-chip-option *ngFor="let trabajador of trabajadores">
-      <img matChipAvatar src={{this.serverimg+trabajador.foto}} alt="Photo of a Shiba Inu" />
-      {{trabajador.nombre}}
-    </mat-chip-option>
-    
-  </mat-chip-listbox>
 </div>
 <div *ngIf="horariocreado"  > 
   <h2>{{this.dia}} {{this.mes[this.mesN]}} {{this.anyo}} </h2>
-  <mat-selection-list class="rightlist" #horas [multiple]="false" >
+  <mat-selection-list class="rightlist" #horas [multiple]="false"
+  (selectionChange)="onSelectListChange($event)">
     <mat-list-option *ngFor="let hora of horarioStr" [value]="hora">
       {{hora}}
     </mat-list-option>
@@ -35,7 +42,7 @@
   <p>
     Hora seleccionada: {{horas.selectedOptions.hasValue() ? horas.selectedOptions.selected[0].value : 'None'}}
   </p>
-  <button mat-button color="primary" (click)="postcita()">Confirmar</button>
+  <button mat-button color="primary" (click)="guardarcita()">Confirmar</button>
 </div>
 </div>
  
