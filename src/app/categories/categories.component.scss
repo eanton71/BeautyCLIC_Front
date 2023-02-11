@@ -1,16 +1,53 @@
+.contenedor-categorias{
+  margin-top: 100px;
+}
 
 
+.categoria-descripcion {
+  text-align: center;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.categoria-imagen {
+  display: column;
+  vertical-align: top;
+  width: 40%;
+  margin: 10px;
+}
 .categorias {
   display: grid;
-  grid-template-columns: 2fr 1.5fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "nombre boton"
+    "foto foto";
   gap: 10px;
-  margin-left: 130px;
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
 }
-h3{
-  margin-left: 130px;
-  margin-bottom: 15px;
-  margin-top: 10px;
+
+.servicios{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+  text-align: center;
 }
+.nombre {
+  grid-area: nombre;
+}
+
+.foto {
+  grid-area: foto;
+}
+
+.boton {
+  grid-area: boton;
+}
+
 
 button{
   border-radius: 10px;
@@ -20,11 +57,10 @@ button{
   background-color: #EC994B;
   color: white;
   border: none;
-  margin-left: 170px;
   margin-bottom: 10px;
 }
 
 h4 {
-  margin-left: 130px;
+  font-size: 22px;
   margin-top: 10px;
 }
