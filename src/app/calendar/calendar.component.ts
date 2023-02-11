@@ -10,7 +10,7 @@
  * lista de horas diaria: 
  * cuando se hace click en un dia disponible 
  * muestra las horas disponibles en rangos de un cuarto de hora a partir del horario del centro (10-21)
- * carga la tabla de citas para ese dia y trabajador seleccionado: bloquea los tramos cogidos en las citas
+ * carga la tabla de citas para ese dia y trabajador horariocreado: bloquea los tramos cogidos en las citas
  * muestra botones en los tramos libres
  * 
  * una vez selecionado el tramo se confirma (boton confirmar), se envia a servidor para guardar
@@ -26,7 +26,13 @@ import { ServiciosService } from '../services/servicios.service';
 import { Cita, NuevaCita } from 'app/models/cita';
 import { Trabajador } from '../models/trabajador';
 import { Servicio } from '../models/servicio';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router'; 
+import { environment } from '../../environments/environment'; 
+import { Cliente } from '../models/cliente';
+import { HorizontalConnectionPos } from '@angular/cdk/overlay';
+import { HttpSentEvent } from '@angular/common/http';
+import { MatSelectionListChange } from '@angular/material/list';
+
 
 const festivos = require('../../assets/data/festivos.json');
 //const trabajadores = require('../../assets/data/trabajador.json');
@@ -38,36 +44,122 @@ const festivos = require('../../assets/data/festivos.json');
 
 export class CalendarComponent {
 
-  constructor(private citaService: CitaService, private serviciosService: ServiciosService, private activatedRoute: ActivatedRoute) {
 
-  }
-  ngOnInit() {
-    //carga el calendario con los dias elegibles  para dos meses
-    //g
-    //this.get_trabajadores_servicio();
-    
-  }
-//FIXME: como obtener una variable  de otro componenete
-  //servicio: Servicio = new Servicio();
+  
+  id_cliente = "";
+  serverimg = environment.url_public;
+  id_servicio = "";
   trabajadores: Trabajador[] = new Array();
-
-
-  mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-  // binding (enlaza) en el template html 
-  todayDate: Date = new Date();
-  //
-  selectedDate: Date = new Date();
+ 
+  selectedDate: any;
   //definir fecha minima y maxima para mostrar
-  minDate = this.todayDate;
-  miliS = this.todayDate.getTime();
+  minDate = new Date();
+  miliS = this.minDate.getTime();
   //1 minuto = 60000 miisegundos
   add2Meses = 2 * 30 * 24 * 60 * 60000;
   maxDate = new Date(this.miliS + this.add2Meses);
-  //dia: Date = new Date();
+  selTrabajador: string="";
+   
+  constructor(private citaService: CitaService, private serviciosService: ServiciosService, private route: ActivatedRoute) {
+
+  }
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.id_servicio = params['id'];
+    });
+
+    this.get_trabajadores_servicio(this.id_servicio);
+    console.log("Trabajadores: ", this.trabajadores);
+    //this.selected = this.trabajadores[0].nombre;
+    this.getLocalStorageID();
+     
+  }
+  private getLocalStorageID(): void {
+
+    let usr: Cliente = JSON.parse(localStorage.getItem('user')!);
+    this.id_cliente = usr._id;
+     
+  }
+
+   
+
+  anyo: number = 0;
+  mesN: number = 0;
+  mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+  dia: number = 0;
+  hora: number = 0;
+  min: number = 0;
+  onSelectCalendar(event: any) {
+    this.selectedDate=event;
+    this.anyo = this.selectedDate.getFullYear() ;
+    this.mesN = this.selectedDate.getMonth();
+    this.dia = this.selectedDate.getDate();
+
+  
+    //y generamos la lista de horas disponibles
+    this.generarHorario();
+    this.horarioStr = this.horario.map(a => a.hora + ":" + a.min);
+    this.horariocreado = true;
+
+  }
+  onSelectListChange($event: MatSelectionListChange) {
+    let valor = $event.source.selectedOptions.selected[0].value;
+    let indice = this.horarioStr.indexOf(valor);
+    console.log(this.horario[indice]);
+    this.hora = this.horario[indice].hora;
+    this.min = this.horario[indice].min;
+
+  }
+   
+  cita: NuevaCita | undefined;
+  //console.log(this.selTrabajador);
+  guardarcita() {
+    alert("post: año" + this.anyo + ", mes: " + this.mesN + " ,dia: " + this.dia +
+      " ,idcliente: " + this.id_cliente +
+      ", idtrabajador: " + this.selTrabajador +
+      ", idservicio: " + this.id_servicio);
+    /* let t : Trabajador;
+    try {
+      t = this.trabajadores.find(t => t.nombre = this.selTrabajador);
+    } catch (error) {
+      console.log(error);
+    }
+    this.cita = new NuevaCita(
+      this.anyo,
+      this.mesN,
+      this.dia,
+      this.hora,
+      this.min,
+      this.id_servicio,
+      60,
+      this.trabajadores.find(t => t.nombre = this.selTrabajador),
+      this.id_cliente); */
+  /* this.citaService.guardarCita(new NuevaCita(
+    this.anyo,
+      this.mesN,
+      this.dia,
+      this.hora,
+      this.min,
+      this.id_servicio,
+      60,
+      this.trabajadores.find(t => t.nombre = this.selTrabajador),
+      this.id_cliente))
+      */
+  }
+
+  nofestivos: boolean[] = new Array();
+  /**
+   * para deshabilitar dias y no se puedan clicar
+   */
+  deshabilitaDias = (d: Date): boolean => {
+    //this.nofestivos = festivos.every((d.getDay() != festivos.dia));
+    return (d.getDay() !== 0 && d.getDay() !== 6);
+  }
 
   horario = new Array();
   horarioStr: string[] = [];
-  seleccionado = false;
+  horariocreado = false;
   generarHorario() {
     this.horario = new Array();
     let hora: number = 9;
@@ -80,68 +172,13 @@ export class CalendarComponent {
     }
   }
 
-  anyo: number=0;
-  diames:number=0;
-  dia: number=0;
-  /**
-   * evento que se produce al seleccionar un dia
-   * @param event 
-   */
-  onSelect(event: any) {
-   this.anyo=event.getFullYear();
-    this.mes= event.getMonth(); 
-    this.dia=event.getDate(); 
 
-
-    //FIXME: con el año,mes,dia, trabajador obtenemos sus citas 
-    //y generamos la lista de horas disponibles
-
-
-    this.generarHorario();
-    this.horarioStr = this.horario.map(a => a.hora + ":" + a.min);
-    this.seleccionado = true;
-
-  }
-  postcita() {
-    //alert("post",this.anyo," " ,this.mes," " ,this.dia);
-  }
-
-  nofestivos: boolean[] = new Array();
-  /**
-   * para deshabilitar dias y no se puedan clicar
-   */
-  deshabilitaDias = (d: Date): boolean => {
-    //this.nofestivos = festivos.every((d.getDay() != festivos.dia));
-    return (d.getDay() !== 0 && d.getDay() !== 6);
-  }
-
-
-  private get_trabajadores_servicio = (id:string) => {
+  private get_trabajadores_servicio = (id: string) => {
     this.serviciosService.getTrabajadoresServicio(id).subscribe(res => this.trabajadores = res);
-}
+  }
   /**
-   * 
-   * 
-  
-    private getProducts(): void {
-      this.productService.getProducts().subscribe(res => this.products = res);
-    }
-  
-    add(): void {
-  
-      const { name, price, description } = this.productForm.getRawValue();
-  
-      this.productForm.reset();
-  
-      this.productService.addNewProduct(name, price, description).subscribe(result => {
-  
-        if (result) { 
-          this.getProducts();
-        }
-      })
-  
-    }
-  
+    
+     
     deleteProduct(index: number): void {
       this.productService.deleteProduct(this.products[index]._id).subscribe(result => {
         if (result) {
@@ -160,7 +197,7 @@ export class CalendarComponent {
     }
    */
 
-
+    
 
   /*
   myFilter = (d: Date | null): boolean => {

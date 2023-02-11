@@ -1,7 +1,7 @@
 <div class="container">
     <ul>
         <li *ngFor="let categoria of categorias" (click)="getServicios(categoria._id)">
-            ID: {{ categoria._id }}, 
+            
             Nombre: {{ categoria.nombre }}, 
             imagen: <img class="imgcategorias" src={{this.serverimg+categoria.foto}}>
 
