@@ -6,6 +6,12 @@
 
 }
 
+.cb_container {
+    display: flex;
+    align-content:flex-start;
+    align-items: center;
+}
+
 a {
     color: black;
     text-decoration: none;
@@ -22,6 +28,9 @@ a:hover {
     font-weight:  bold;
 }
 
+.footer-box-big h4 {
+    margin-top: 20px;
+}
 
 .footer-content {
     font-family: Jost;    
@@ -29,17 +38,51 @@ a:hover {
 }
 
 .footer-box-normal {
-    background-color: bisque;
-    width: 280px;
+    width: 230px;
     margin-bottom: 2em;
+    /* background-color: bisque; */
 }
 
 .footer-box-big {
-    background-color: rgb(209, 151, 81);
     width: 280px;
     margin-bottom: 2em;
+    /* background-color: azure; */
 }
 
 .footer-centered { text-align: center;}
 
 .footer-content i {padding: 0.5em 0.5em 0em 0.5em;}
+
+input.news-check {
+    width: 21px;
+    height: 21px;    
+    margin-right: 5px;
+}
+
+input.news-email {
+    height: 40px;
+    width: 100%;
+    
+}
+
+.news-btn {            
+    width: 121px;
+    height: 38px;
+    border-radius: 34px;
+    border: 0px;
+    background-color: #EC994B;
+    margin-top: 10px;
+}
+
+.center_btn {
+    text-align: center;
+}
+
+.news_error {
+    background-color: coral;
+    border-radius: 5px;
+    border: 1px solid red;
+    padding: 20px 
+}
+
+.footer-content p {font-style: italic;}
