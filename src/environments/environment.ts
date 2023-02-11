@@ -4,6 +4,7 @@ export const environment = {
   url_login:'http://localhost:3000/api/login-user',
   url_register:'http://localhost:3000/api/register-user',
   url_update_image:'http://localhost:3000/api/upload/user-pic',
+  url_newslist:'http://localhost:3000/api/newslist',
   pubkey:`-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyfmKEnrvSjcF5GjHH8Gt
 uJ75DsLWn9e5O1UE+utY3o7ygpnXUKPZ7eZz7+XAPl2IiQIXg3bi0Dd5yLX7YyRA
