@@ -31,7 +31,7 @@
 
 .servicios{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin: 0 auto;
   text-align: center;
@@ -48,7 +48,11 @@
   grid-area: boton;
 }
 
-
+ .boton-atras {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  }
 button{
   border-radius: 10px;
   padding: 5px;

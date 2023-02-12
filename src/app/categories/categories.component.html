@@ -1,6 +1,6 @@
 <div class="contenedor-categorias">
-  <div >
-    <div class="categorias" *ngIf="mostrarCategorias">
+  <div *ngIf="mostrarCategorias">
+    <div class="categorias">
       <div *ngFor="let categoria of categorias">
         <img class="categoria-imagen" class="foto" src={{this.serverimg+categoria.foto}}>
         <div class="categoria-descripcion">
@@ -10,16 +10,19 @@
       </div>
       </div>
     </div>
-    <div>
-      <div class="servicios">
+  </div>
+    <div class="servicios">
       <div *ngFor="let servicio of servicios">
         <img class="categoria-imagen" class="foto" src={{this.serverimg+servicio.foto}}>
         <div class="categoria-descripcion">
         <h4 [routerLink]="['/calendar', servicio._id]">{{servicio.nombre}} </h4>
         <p>{{servicio.descripcion}}</p>
+        <p>Duracion: {{servicio.duracion}} min</p>
       </div>
       </div>
     </div>
-    </div>
+    <div *ngIf="!mostrarCategorias">
+      <button class="boton-atras" (click)="mostrarCategorias = true; servicios = []">Volver atrás</button>
   </div>
 </div>
+
