@@ -30,7 +30,9 @@ export class LogRegisterComponent {
     })
     this.showWarning = false;
   }
-
+  ngOnInit() {
+  //if(this.logreg.ge) TODO: get local storage en servicio y redirigir 
+}
   sendLogin():void{
     console.log("sendLogin");
     if(this.loginForm.invalid){
