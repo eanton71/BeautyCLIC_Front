@@ -26,12 +26,12 @@ import { ServiciosService } from '../services/servicios.service';
 import { Cita, NuevaCita } from 'app/models/cita';
 import { Trabajador } from '../models/trabajador';
 import { Servicio } from '../models/servicio';
-import { ActivatedRoute } from '@angular/router'; 
-import { environment } from '../../environments/environment'; 
-import { Cliente } from '../models/cliente';
-import { HorizontalConnectionPos } from '@angular/cdk/overlay';
-import { HttpSentEvent } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../environments/environment';
+import { Cliente } from '../models/cliente'; 
 import { MatSelectionListChange } from '@angular/material/list';
+import { MatChipListboxChange } from '@angular/material/chips';
+import { LogregService } from '../services/logreg.service';
 
 
 const festivos = require('../../assets/data/festivos.json');
@@ -45,12 +45,12 @@ const festivos = require('../../assets/data/festivos.json');
 export class CalendarComponent {
 
 
-  
+
   id_cliente = "";
   serverimg = environment.url_public;
   id_servicio = "";
   trabajadores: Trabajador[] = new Array();
- 
+
   selectedDate: any;
   //definir fecha minima y maxima para mostrar
   minDate = new Date();
@@ -58,9 +58,16 @@ export class CalendarComponent {
   //1 minuto = 60000 miisegundos
   add2Meses = 2 * 30 * 24 * 60 * 60000;
   maxDate = new Date(this.miliS + this.add2Meses);
-  selTrabajador: string="";
-   
-  constructor(private citaService: CitaService, private serviciosService: ServiciosService, private route: ActivatedRoute) {
+    
+
+
+  constructor(
+    private logRegSrv:LogregService,
+    private citaService: CitaService,
+    private serviciosService: ServiciosService,
+    private route: ActivatedRoute
+  )
+  {
 
   }
   ngOnInit() {
@@ -71,17 +78,17 @@ export class CalendarComponent {
     this.get_trabajadores_servicio(this.id_servicio);
     console.log("Trabajadores: ", this.trabajadores);
     //this.selected = this.trabajadores[0].nombre;
-    this.getLocalStorageID();
-     
-  }
-  private getLocalStorageID(): void {
+   // this.getLocalStorageID();
 
-    let usr: Cliente = JSON.parse(localStorage.getItem('user')!);
+  }
+  /* private getLocalStorageID(): void {
+
+    let usr: Cliente = JSON.parse(localStorage.getItem('servicio')!);
     this.id_cliente = usr._id;
-     
-  }
 
-   
+  } */
+
+
 
   anyo: number = 0;
   mesN: number = 0;
@@ -91,12 +98,12 @@ export class CalendarComponent {
   hora: number = 0;
   min: number = 0;
   onSelectCalendar(event: any) {
-    this.selectedDate=event;
-    this.anyo = this.selectedDate.getFullYear() ;
+    this.selectedDate = event;
+    this.anyo = this.selectedDate.getFullYear();
     this.mesN = this.selectedDate.getMonth();
     this.dia = this.selectedDate.getDate();
 
-  
+
     //y generamos la lista de horas disponibles
     this.generarHorario();
     this.horarioStr = this.horario.map(a => a.hora + ":" + a.min);
@@ -111,43 +118,46 @@ export class CalendarComponent {
     this.min = this.horario[indice].min;
 
   }
-   
-  cita: NuevaCita | undefined;
-  //console.log(this.selTrabajador);
-  guardarcita() {
-    alert("post: año" + this.anyo + ", mes: " + this.mesN + " ,dia: " + this.dia +
-      " ,idcliente: " + this.id_cliente +
-      ", idtrabajador: " + this.selTrabajador +
-      ", idservicio: " + this.id_servicio);
-    /* let t : Trabajador;
-    try {
-      t = this.trabajadores.find(t => t.nombre = this.selTrabajador);
-    } catch (error) {
-      console.log(error);
-    }
-    this.cita = new NuevaCita(
-      this.anyo,
-      this.mesN,
-      this.dia,
-      this.hora,
-      this.min,
-      this.id_servicio,
-      60,
-      this.trabajadores.find(t => t.nombre = this.selTrabajador),
-      this.id_cliente); */
-  /* this.citaService.guardarCita(new NuevaCita(
-    this.anyo,
-      this.mesN,
-      this.dia,
-      this.hora,
-      this.min,
-      this.id_servicio,
-      60,
-      this.trabajadores.find(t => t.nombre = this.selTrabajador),
-      this.id_cliente))
-      */
-  }
 
+  cita: NuevaCita | undefined;
+  enableButtonSaveCita() {
+    return !(this.anyo
+      && this.mes
+      && this.dia
+      && this.hora
+      && this.min
+      && this.id_servicio
+      && this.serviciosService.duracion_servicio
+      && this.selectedTrabajador._id
+      && this.logRegSrv.userId);
+  } 
+  guardarcita() {
+   
+    
+      this.cita = new NuevaCita(
+        this.anyo,
+        this.mesN,
+        this.dia,
+        this.hora,
+        this.min,
+        this.id_servicio,
+        this.serviciosService.duracion_servicio,
+        this.selectedTrabajador._id,
+        this.logRegSrv.userId); 
+    this.citaService.guardarCita(this.cita).subscribe(result => {
+
+      if (result) {
+        //this.getProducts();
+        console.log(result);
+      }
+    });
+    
+  }
+  citasTrabajadorDia: Cita[]=[];
+  getCitasTrabajadorDia() {
+   // this.citaService.getCitasTrabajadorDia(anyo:Number,mes:Number)
+    
+ }
   nofestivos: boolean[] = new Array();
   /**
    * para deshabilitar dias y no se puedan clicar
@@ -171,10 +181,30 @@ export class CalendarComponent {
       this.horario.push({ hora: hora, min: min });
     }
   }
-
+  selectedTrabajador: Trabajador = {
+    _id: '',
+    nombre: '',
+    apellidos: '',
+    email: '',
+    info: '',
+    foto: ''
+  }; 
+  selectedChip(event: MatChipListboxChange): void {
+    //this.selectedTrabajador = event.value;
+    console.log(event.value);
+    this.selectedTrabajador = event.value;
+    console.log(this.selectedTrabajador._id);
+    /* let trL: Trabajador[] =[];
+    trL = this.trabajadores;
+    this.tr = trL.find(t => t.nombre = event.value);
+    if(this.tr)console.log(this.tr._id); */
+     
+  }
 
   private get_trabajadores_servicio = (id: string) => {
-    this.serviciosService.getTrabajadoresServicio(id).subscribe(res => this.trabajadores = res);
+    this.serviciosService.getTrabajadoresServicio(id).subscribe((res:Trabajador[]) => { 
+      this.trabajadores = res; 
+    }); 
   }
   /**
     
@@ -197,7 +227,7 @@ export class CalendarComponent {
     }
    */
 
-    
+
 
   /*
   myFilter = (d: Date | null): boolean => {

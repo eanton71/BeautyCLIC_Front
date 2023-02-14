@@ -31,7 +31,12 @@ export class LogRegisterComponent {
     this.showWarning = false;
   }
   ngOnInit() {
-  //if(this.logreg.ge) TODO: get local storage en servicio y redirigir 
+    const user = JSON.parse(localStorage.getItem('user')!);
+    //si hay usuario logueado navegar a su espacio privado
+    if (user) {
+      this.route.navigateByUrl('/profile');
+    }
+  //if(this.logreg.ge) FIXME: get local storage en servicio y redirigir 
 }
   sendLogin():void{
     console.log("sendLogin");
