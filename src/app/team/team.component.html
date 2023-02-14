@@ -1,5 +1,5 @@
 <div id="contentTeam">
-  <div class="employee">
+  <div class="employee" *ngIf="trabajadores">
     <div class="workerDescription" *ngFor="let trabajador of trabajadores">
       <img src={{this.serverimg+trabajador.foto}} alt="workerImage">
       <h3> {{trabajador.nombre + trabajador.apellidos}} </h3>
@@ -7,3 +7,6 @@
     </div>
   </div>
 </div>
+
+<!--
+    -->
