@@ -6,10 +6,10 @@ export interface Cita {
     dia: number;
     hora: number;
     minuto: number; 
-
     servicio: string;
     duracion: number;
     trabajador: string; 
+    cliente: string;
 }
 //se envia desde la pagina calendario para guardar la cita
 // POST { año, mes, dia, hora, minutos, servicio, trabajador, cliente }

@@ -1,33 +1,28 @@
 <div class="contenedor-categorias">
-<h3>Nuestros Servicios</h3>
-<div class="categorias">
-  <div>
-    <img src="../../assets/categorias/cuidados-faciales.png" alt="">
-    <h4>Cuidados Faciales</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat <br>ipsum mi, vitae volutpat massa gravida id.
-      Nullam faucibus pellentesque <br>sollicitudin .Nunc et urna venenatis, blandit ipsum eget, placerat risus.</p>
-      <button>Ver Mas</button>
+  <div *ngIf="mostrarCategorias">
+    <div class="categorias">
+      <div *ngFor="let categoria of categorias">
+        <img class="categoria-imagen" class="foto" src={{this.serverimg+categoria.foto}}>
+        <div class="categoria-descripcion">
+        <h4>{{ categoria.nombre }}</h4>
+        <p>{{categoria.descripcion}}</p>
+        <button class="boton" (click)="getServicios(categoria._id)">Ver Servicios</button>
+      </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <img src="../../assets/categorias/cuidados-corporales.png" alt="">
-    <h4>Cuidados Coporales</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat <br>ipsum mi, vitae volutpat massa gravida id.
-      Nullam faucibus pellentesque <br>sollicitudin .Nunc et urna venenatis, blandit ipsum eget, placerat risus.</p>
-      <button>Ver Mas</button>
-  </div>
-  <div>
-    <img src="../../assets/categorias/pack-relax.png" alt="">
-    <h4>Pack Relax</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat <br>ipsum mi, vitae volutpat massa gravida id.
-      Nullam faucibus pellentesque <br>sollicitudin .Nunc et urna venenatis, blandit ipsum eget, placerat risus.</p>
-      <button>Ver Mas</button>
-  </div>
-  <div>
-    <img src="../../assets/categorias/depilacion.png" alt="">
-    <h4>Depilacion</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat <br>ipsum mi, vitae volutpat massa gravida id.
-      Nullam faucibus pellentesque <br>sollicitudin .Nunc et urna venenatis, blandit ipsum eget, placerat risus.</p>
-      <button>Ver Mas</button>
+    <div class="servicios">
+      <div *ngFor="let servicio of servicios">
+        <img class="categoria-imagen" class="foto" src={{this.serverimg+servicio.foto}}>
+        <div class="categoria-descripcion">
+        <h4 [routerLink]="['/calendar', servicio._id]">{{servicio.nombre}} </h4>
+        <p>{{servicio.descripcion}}</p>
+        <p>Duracion: {{servicio.duracion}} min</p>
+      </div>
+      </div>
+    </div>
+    <div *ngIf="!mostrarCategorias">
+      <button class="boton-atras" (click)="mostrarCategorias = true; servicios = []">Volver atrás</button>
   </div>
 </div>
-</div>
+

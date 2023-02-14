@@ -14,16 +14,15 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import {  catchError, Observable, of } from 'rxjs';
 
-import { Cita,NuevaCita } from '../models/cita';
-import { Trabajador } from '../models/trabajador';
+import { Cita,NuevaCita } from '../models/cita'; 
 @Injectable({
   providedIn: 'root'
 })
 export class CitaService {
+ 
   private port = 3000;
-  private urlgetTrabajadoresServicio = 'http://localhost:' + this.port + '/api/get_trabajadores_servicio';
   private urlgetCitasTrabajadorDia = 'http://localhost:' + this.port + '/api/get_citas_trabajador_dia';
   private urlgetCitasCliente = 'http://localhost:' + this.port + '/api/get_citas_cliente';
   private urlpost = 'http://localhost:' + this.port + '/api/post_cita_trabajador_cliente';
@@ -31,14 +30,12 @@ export class CitaService {
   //TODO: revisar para modificar citas y anularlas
   //private urldelete = 'http://localhost:' + this.port + '/api/delete_product';
  // private urlput = 'http://localhost:' + this.port + '/api/put_product';
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
 
-  //trabajadores que realizan un servicio determinado
-  //
-  //retorna array de {nombre, foto, horario {}} 
-  getTrabajadoresServicio(): Observable<Trabajador[]> {
-    return this.httpClient.get<Trabajador[]>(this.urlgetTrabajadoresServicio+"/123").pipe(catchError(this.handleError<any>('getCitasServicio')));
-  }
+    
+   }
+
+   
 
 //Obtener lista de citas por dia y  trabajador
   getCitasTrabajadorDia(): Observable<Cita[]> {
@@ -50,13 +47,17 @@ export class CitaService {
     return this.httpClient.get<Cita[]>(this.urlgetCitasCliente).pipe(catchError(this.handleError<any>('getCitasCliente')));
   }
   //guardar cita (fecha,hora, servicio,trabajdor,cliente)
-  addCita(cita:NuevaCita): Observable<object> {
-
-    //const data = { name: name, price: price, description: description };
+  guardarCita(cita: NuevaCita): Observable<NuevaCita> { 
+     
     //CORRECCION {data} en windows,    {info:data} en MAC
-    return this.httpClient.post(this.urlpost, { info: cita }, { observe: 'body' }).pipe(catchError(this.handleError<any>('addCita')));
+    return this.httpClient.post<NuevaCita>(this.urlpost, { cita }, { observe: 'body' })
+      .pipe(
+        catchError(this.handleError<any>('guardar cita'))
+      );
   }
-  private handleError<T>(operation = 'opearation', result?: T) {
+
+
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error);// log to console instead
