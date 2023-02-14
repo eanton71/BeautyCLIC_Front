@@ -12,7 +12,7 @@
  * Hay que implementar las funciones bien y poner las llamadas en los componentes que las necesiten
  * */
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {  catchError, Observable, of } from 'rxjs';
 
@@ -38,8 +38,13 @@ export class CitaService {
    
 
 //Obtener lista de citas por dia y  trabajador
-  getCitasTrabajadorDia(): Observable<Cita[]> {
-    return this.httpClient.get<Cita[]>(this.urlgetCitasTrabajadorDia, { observe: 'body', params:{} }).pipe(catchError(this.handleError<any>('getCitasServicio')));
+  getCitasTrabajadorDia(anyo: Number, mes: Number, dia: Number,id_trabajador:string): Observable<Cita[]> {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("anyo", anyo.toString());
+    queryParams = queryParams.append("mes", mes.toString());
+    queryParams = queryParams.append("dia", dia.toString());
+    queryParams = queryParams.append("id_trabajador", id_trabajador);
+    return this.httpClient.get<Cita[]>(this.urlgetCitasTrabajadorDia, { observe: 'body',  params:queryParams }).pipe(catchError(this.handleError<any>('getCitasServicio')));
   }
 
   //Mostrar citas del cliente despues de loguear
