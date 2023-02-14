@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Trabajador } from 'app/models/trabajador';
 import { TeamService } from '../services/team.service';
 import { environment } from '../../environments/environment';
@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
   templateUrl: './team.component.html',
   styleUrls: ['./team.component.scss']
 })
-export class TeamComponent {
+export class TeamComponent implements OnInit{
   serverimg = environment.url_public;
   trabajadores: Trabajador[] =[];
   urlimg: string[] = [];

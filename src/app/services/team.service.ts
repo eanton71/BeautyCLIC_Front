@@ -9,7 +9,7 @@ import { Trabajador } from '../models/trabajador';
 export class TeamService {
   private url = 'http://localhost:3000/api/get_trabajadores';
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getTrabajadores():Observable<Trabajador[]>{
     return this.httpClient.get<Trabajador[]>(this.url).pipe(catchError(this.handleError<any>('getTrabajadores')));

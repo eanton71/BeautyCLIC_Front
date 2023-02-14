@@ -5,13 +5,13 @@ import { AppComponent } from './app.component';
 
 import { CategoriesComponent } from './categories/categories.component';
 
-import { HeaderComponent } from './components/shared/header/header.component';   
+import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { PoliticaprivacidadComponent } from './components/politicaprivacidad/politicaprivacidad.component';
 import { HomeComponent } from './home/home.component';
-import { CalendarComponent } from './calendar/calendar.component'; 
+import { CalendarComponent } from './calendar/calendar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -20,7 +20,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LogRegisterComponent } from './log-register/log-register.component';
 
 
- 
+
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -30,14 +30,15 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MaterialModule } from '../material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiciosComponent } from './servicios/servicios.component';
+import { TeamComponent } from './team/team.component';
 
- 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    NavbarComponent, 
+    NavbarComponent,
     ContactoComponent,
     PoliticaprivacidadComponent,
     HomeComponent,
@@ -45,28 +46,28 @@ import { ServiciosComponent } from './servicios/servicios.component';
     CategoriesComponent,
     ProfileComponent,
     LogRegisterComponent,
-    ServiciosComponent, 
-
+    ServiciosComponent,
+    TeamComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
 
-    //Material 
+    //Material
     MatDatepickerModule,
     MatCardModule,
     MatNativeDateModule,
-    MatListModule,  
+    MatListModule,
     MaterialModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
   exports: [
-    // Material 
- 
+    // Material
+
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'es-ES' },
