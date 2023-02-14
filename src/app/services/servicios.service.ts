@@ -14,7 +14,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, of } from 'rxjs';
 
  
 import { Trabajador } from '../models/trabajador';
@@ -24,6 +24,7 @@ import { Servicio } from '../models/servicio';
   providedIn: 'root'
 })
 export class ServiciosService {
+  private currentServicioSubject: BehaviorSubject<Servicio>;
   private port = 3000;
   private urlgetTrabajadoresServicio = 'http://localhost:' + this.port + '/api/get_trabajadores_servicio';
   private urlgetCategorias = 'http://localhost:' + this.port + '/api/get_categorias';
@@ -33,7 +34,9 @@ export class ServiciosService {
   //TODO: revisar para modificar citas y anularlas
   //private urldelete = 'http://localhost:' + this.port + '/api/delete_product';
   // private urlput = 'http://localhost:' + this.port + '/api/put_product';
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.currentServicioSubject = new BehaviorSubject<Servicio>(JSON.parse(localStorage.getItem('servicio') || '{}'));
+   }
 
   /**
    * lista de trabajadores que ralizan el servicio id_sevicio
@@ -47,6 +50,48 @@ export class ServiciosService {
   getServicios(id_categoria: string): Observable<Servicio[]> {
     return this.httpClient.get<Servicio[]>(this.urlgetServicios + '/' + id_categoria , { observe: 'body' }).pipe(catchError(this.handleError<any>('getServicios')));
   } 
+
+
+
+  /**
+ * FUNCIONES PARA Beahovirrrlll Subject servicio
+ */
+  public get nombre_servicio(): string {
+    return this.currentServicioSubject.value.nombre;
+  }
+  public get duracion_servicio(): number {
+    return this.currentServicioSubject.value.duracion;
+  }
+  public get currentServicioValue(): Servicio | undefined {
+    const servicio = JSON.parse(localStorage.getItem('servicio')!);
+    this.currentServicioSubject.next(servicio);
+    if (this.currentServicioSubject !== null) {
+      return this.currentServicioSubject.value;
+    }
+    return undefined;
+  }
+  cleanLS_Servicio(): void {
+    localStorage.removeItem('servicio');
+    this.currentServicioSubject.next({
+      _id: '',
+      nombre: '',
+      duracion: 0,
+      descripcion: '',
+      precio: 0,
+      categoria: '',
+      foto: ''
+    })
+    //this.router.navigate(['']);
+  }
+  /**
+   * 
+   * @param servicio 
+   */
+
+  setLocalStorageServicio(servicio: Servicio): void {
+    localStorage.setItem('servicio', JSON.stringify(servicio));
+    this.currentServicioSubject.next(servicio);
+  }
   private handleError<T>(operation = 'opearation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure

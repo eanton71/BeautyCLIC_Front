@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core'; 
 import { Categoria } from 'app/models/categoria';
 import { Servicio } from 'app/models/servicio';
 import { ServiciosService } from 'app/services/servicios.service';
@@ -21,6 +21,11 @@ export class ServiciosComponent {
   ngOnInit() {
     //carga una lista con las categorias
     this.getCategorias();
+  }
+  //FIXME: poner esto en categorias y navbar para guardadr datos en storgae 
+  toCalendar(id_servicio: string) {
+    let servicio = this.servicios.find(a => a._id = id_servicio) ;
+    if(servicio)this.serviciosService.setLocalStorageServicio(servicio)//return this.router.navigateByUrl('/calendar', id_servicio);
   }
   private getCategorias(): void {
     this.serviciosService.getCategorias().subscribe(res => this.categorias = res);

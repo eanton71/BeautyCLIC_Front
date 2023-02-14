@@ -15,21 +15,29 @@
     </mat-calendar>
    </mat-card> 
 
-
-  <mat-form-field appearance="fill">
+<!--
+ <mat-form-field appearance="fill">
     <mat-label>Select an option</mat-label>
     <mat-select [(value)]="selTrabajador">
   
-      <mat-option *ngFor="let trabajador of trabajadores" value="{{trabajador._id}}">
+      <mat-option *ngFor="let trabajador of trabajadores" value="{{trabajador}}">
         {{trabajador.nombre}}
         <img class="chipimg" src={{this.serverimg+trabajador.foto}} alt="Foto de {{trabajador.nombre}}" />
       </mat-option>
     </mat-select>
   </mat-form-field>
   <p>Seleccionado: {{selTrabajador}}</p>
- 
+-->
+<mat-chip-listbox (change)="selectedChip($event)"  aria-label="seleccion de trabajador">
+  <mat-chip-option  [value]="trabajador" class="chip" *ngFor="let trabajador of trabajadores">
+    <img    src={{this.serverimg+trabajador.foto}} class="chipimg" alt="Foto de ,,,"/>
+    {{trabajador.nombre}}
+  </mat-chip-option>
+  
+</mat-chip-listbox>
+
 </div>
-<div *ngIf="horariocreado"  > 
+<div *ngIf="horariocreado"> 
   <h2>{{this.dia}} {{this.mes[this.mesN]}} {{this.anyo}} </h2>
   <mat-selection-list class="rightlist" #horas [multiple]="false"
   (selectionChange)="onSelectListChange($event)">
@@ -42,7 +50,7 @@
   <p>
     Hora seleccionada: {{horas.selectedOptions.hasValue() ? horas.selectedOptions.selected[0].value : 'None'}}
   </p>
-  <button mat-button color="primary" (click)="guardarcita()">Confirmar</button>
+  <button [disabled]="enableButtonSaveCita()" mat-button color="primary" (click)="guardarcita()">Confirmar</button>
 </div>
 </div>
  
