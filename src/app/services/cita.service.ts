@@ -38,11 +38,11 @@ export class CitaService {
    
 
 //Obtener lista de citas por dia y  trabajador
-  getCitasTrabajadorDia(anyo: string, mes: string, dia: string,id_trabajador:string): Observable<Cita[]> {
+  getCitasTrabajadorDia(anyo: Number, mes: Number, dia: Number,id_trabajador:string): Observable<Cita[]> {
     let queryParams = new HttpParams();
-    queryParams = queryParams.append("anyo", anyo);
-    queryParams = queryParams.append("mes", mes);
-    queryParams = queryParams.append("dia", dia);
+    queryParams = queryParams.append("anyo", anyo.toString());
+    queryParams = queryParams.append("mes", mes.toString());
+    queryParams = queryParams.append("dia", dia.toString());
     queryParams = queryParams.append("id_trabajador", id_trabajador);
     return this.httpClient.get<Cita[]>(this.urlgetCitasTrabajadorDia, { observe: 'body',  params:queryParams }).pipe(catchError(this.handleError<any>('getCitasServicio')));
   }

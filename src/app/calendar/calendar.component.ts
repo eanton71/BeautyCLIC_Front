@@ -75,8 +75,7 @@ export class CalendarComponent {
       this.id_servicio = params['id'];
     });
 
-    this.get_trabajadores_servicio(this.id_servicio);
-    console.log("Trabajadores: ", this.trabajadores);
+    this.get_trabajadores_servicio(this.id_servicio); 
     //this.selected = this.trabajadores[0].nombre;
    // this.getLocalStorageID();
 
@@ -103,20 +102,21 @@ export class CalendarComponent {
     this.mesN = this.selectedDate.getMonth();
     this.dia = this.selectedDate.getDate();
 
+    //if (this.selectedTrabajador) this.getCitasTrabajadorDia(this.anyo, this.mesN, this.dia, this.selectedTrabajador._id);
 
     //y generamos la lista de horas disponibles
-    this.generarHorario();
+
+    if (this.citasTrabajadorDia)this.generarHorario();
     this.horarioStr = this.horario.map(a => a.hora + ":" + a.min);
     this.horariocreado = true;
-
+    
   }
   onSelectListChange($event: MatSelectionListChange) {
     let valor = $event.source.selectedOptions.selected[0].value;
     let indice = this.horarioStr.indexOf(valor);
-    console.log(this.horario[indice]);
+     
     this.hora = this.horario[indice].hora;
-    this.min = this.horario[indice].min;
-
+    this.min = this.horario[indice].min; 
   }
 
   cita: NuevaCita | undefined;
@@ -146,16 +146,18 @@ export class CalendarComponent {
         this.logRegSrv.userId); 
     this.citaService.guardarCita(this.cita).subscribe(result => {
 
-      if (result) {
-        //this.getProducts();
+      if (result) { 
         console.log(result);
       }
     });
     
   }
   citasTrabajadorDia: Cita[]=[];
-  getCitasTrabajadorDia() {
-   // this.citaService.getCitasTrabajadorDia(anyo:Number,mes:Number)
+  getCitasTrabajadorDia(anyo: Number, mes: Number, dia: Number, id_trabajador: string) {
+
+    this.citaService.getCitasTrabajadorDia(anyo, mes, dia, id_trabajador).subscribe((res: Cita[]) => {
+      this.citasTrabajadorDia = res;
+    }); 
     
  }
   nofestivos: boolean[] = new Array();
@@ -166,7 +168,7 @@ export class CalendarComponent {
     //this.nofestivos = festivos.every((d.getDay() != festivos.dia));
     return (d.getDay() !== 0 && d.getDay() !== 6);
   }
-
+   
   horario = new Array();
   horarioStr: string[] = [];
   horariocreado = false;
@@ -177,7 +179,21 @@ export class CalendarComponent {
     this.horario.push({ hora: 9, min: 0 });
     for (let i = 1; i < 48; i++) {
       hora = hora + Math.floor((min + 15) / 60);
-      min = (min + 15) % 60;
+      min = (min + 15) % 60; 
+      this.citasTrabajadorDia.forEach(cita=>
+      {
+        let cuartos = Math.ceil(cita.duracion); 
+        if (cita.hora == hora && cita.minuto == min) {
+          //console.log("horas trabajdo H: ", h, " M: ", m);
+          min += cita.duracion;
+          min = (min + 15) % 60;
+          hora = hora + Math.floor((min + 15) / 60);
+          i += cuartos;
+          //console.log("COINCIDE H: ", hora, " M: ", min);
+        }
+        }
+      );
+
       this.horario.push({ hora: hora, min: min });
     }
   }
@@ -191,14 +207,16 @@ export class CalendarComponent {
   }; 
   selectedChip(event: MatChipListboxChange): void {
     //this.selectedTrabajador = event.value;
-    console.log(event.value);
+   // console.log(event.value);
     this.selectedTrabajador = event.value;
-    console.log(this.selectedTrabajador._id);
+    //console.log(this.selectedTrabajador._id);
     /* let trL: Trabajador[] =[];
     trL = this.trabajadores;
     this.tr = trL.find(t => t.nombre = event.value);
     if(this.tr)console.log(this.tr._id); */
-     
+    try {
+      this.getCitasTrabajadorDia(this.anyo, this.mesN, this.dia, this.selectedTrabajador._id);
+    } catch (error) { };
   }
 
   private get_trabajadores_servicio = (id: string) => {
