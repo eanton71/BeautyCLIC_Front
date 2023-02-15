@@ -49,8 +49,8 @@ export class ProfileComponent {
   private getCitasCliente = async (id_cliente: string) => {
     await this.citasService.getCitasCliente(id_cliente).subscribe((res: Cita[]) => {
       this.citas = res;
-      this.loadArrays().then(
-      );
+     // FIXME: da error this.loadArrays().then(
+     // );
       //console.log(res);
       //this.trabajadores = res.map(a => a.trabajador);
      // console.log(this.trabajadores)
