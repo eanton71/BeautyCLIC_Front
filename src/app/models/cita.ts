@@ -1,14 +1,39 @@
 //citas segun trabajadores que hagan ese servicio
-export interface Cita {
+export interface CitaCliente {
     _id: string;
     anio: number;
     mes: number;
     dia: number;
     hora: number;
     minuto: number; 
+    servicio: {
+        _id: string;
+        nombre: string;
+        duracion: number;
+        descripcion: string;
+        foto: string;
+         
+    }
+    duracion: number;
+    trabajador: {
+        _id: string;
+        nombre: string;
+        apellidos: string;
+        email: string;
+        info: string;
+        foto: string;
+    } 
+}
+export interface Cita  {
+    _id: string;
+    anio: number;
+    mes: number;
+    dia: number;
+    hora: number;
+    minuto: number;
     servicio: string;
     duracion: number;
-    trabajador: string; 
+    trabajador: string;
     cliente: string;
 }
 //se envia desde la pagina calendario para guardar la cita
