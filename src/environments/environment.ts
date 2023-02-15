@@ -3,8 +3,15 @@ export const environment = {
   url_public: 'http://localhost:4200/assets',
   url_login:'http://localhost:3000/api/login-user',
   url_register:'http://localhost:3000/api/register-user',
-  url_update_image:'http://localhost:3000/api/upload/user-pic',
-  url_newslist:'http://localhost:3000/api/newslist',
+  url_update_image: 'http://localhost:3000/api/upload/user-pic',
+  urlpost: 'https://localhost:3000/api/post_cita_trabajador_cliente',
+  urlgetCitasCliente: 'https://localhost:3000/api/get_citas_cliente',
+  urlgetCitasTrabajadorDia: 'https://localhost:3000/api/get_citas_trabajador_dia',
+  url_newslist: 'http://localhost:3000/api/newslist',
+  urlgetTrabajadoresServicio : 'http://localhost:3000/api/get_trabajadores_servicio' ,
+  urlgetCategorias : 'http://localhost:3000/api/get_categorias',
+  urlgetServicios: 'http://localhost:3000/api/get_servicios',
+  url : 'http://localhost:3000/api/get_trabajadores',
   pubkey:`-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyfmKEnrvSjcF5GjHH8Gt
 uJ75DsLWn9e5O1UE+utY3o7ygpnXUKPZ7eZz7+XAPl2IiQIXg3bi0Dd5yLX7YyRA

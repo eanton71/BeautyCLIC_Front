@@ -15,7 +15,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, Observable, of } from 'rxjs';
-
+import { environment } from 'environments/environment';
  
 import { Trabajador } from '../models/trabajador';
 import { Categoria } from '../models/categoria';
@@ -25,10 +25,10 @@ import { Servicio } from '../models/servicio';
 })
 export class ServiciosService {
   private currentServicioSubject: BehaviorSubject<Servicio>;
-  private port = 3000;
-  private urlgetTrabajadoresServicio = 'http://localhost:' + this.port + '/api/get_trabajadores_servicio';
-  private urlgetCategorias = 'http://localhost:' + this.port + '/api/get_categorias';
-  private urlgetServicios = 'http://localhost:' + this.port + '/api/get_servicios';
+  //private port = 3000;
+ // private urlgetTrabajadoresServicio = 'http://localhost:' + this.port + '/api/get_trabajadores_servicio';
+  //private urlgetCategorias = 'http://localhost:' + this.port + '/api/get_categorias';
+  //private urlgetServicios = 'http://localhost:' + this.port + '/api/get_servicios';
 
   
   //TODO: revisar para modificar citas y anularlas
@@ -42,13 +42,13 @@ export class ServiciosService {
    * lista de trabajadores que ralizan el servicio id_sevicio
    */
   getTrabajadoresServicio(id_servicio:string): Observable<Trabajador[]> {
-    return this.httpClient.get<Trabajador[]>(this.urlgetTrabajadoresServicio + '/' + id_servicio).pipe(catchError(this.handleError<any>('getTrabajadoresServicio')));
+    return this.httpClient.get<Trabajador[]>(environment.urlgetTrabajadoresServicio + '/' + id_servicio).pipe(catchError(this.handleError<any>('getTrabajadoresServicio')));
   }
   getCategorias(): Observable<Categoria[]> {
-    return this.httpClient.get<Categoria[]>(this.urlgetCategorias).pipe(catchError(this.handleError<any>('getCategorias')));
+    return this.httpClient.get<Categoria[]>(environment.urlgetCategorias).pipe(catchError(this.handleError<any>('getCategorias')));
   }
   getServicios(id_categoria: string): Observable<Servicio[]> {
-    return this.httpClient.get<Servicio[]>(this.urlgetServicios + '/' + id_categoria , { observe: 'body' }).pipe(catchError(this.handleError<any>('getServicios')));
+    return this.httpClient.get<Servicio[]>(environment.urlgetServicios + '/' + id_categoria , { observe: 'body' }).pipe(catchError(this.handleError<any>('getServicios')));
   } 
 
 
