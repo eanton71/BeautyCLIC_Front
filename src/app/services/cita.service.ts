@@ -48,13 +48,16 @@ export class CitaService {
   }
 
   //Mostrar citas del cliente despues de loguear
-  getCitasCliente(): Observable<Cita[]> {
-    return this.httpClient.get<Cita[]>(this.urlgetCitasCliente).pipe(catchError(this.handleError<any>('getCitasCliente')));
+  getCitasCliente(id_cliente: string): Observable<Cita[]> {
+    let queryParams = new HttpParams();
+    queryParams = queryParams.append("id_cliente", id_cliente); 
+    return this.httpClient.get<Cita[]>(this.urlgetCitasCliente, { observe: 'body', params: queryParams }).pipe(catchError(this.handleError<any>('getCitasCliente')));
   }
   //guardar cita (fecha,hora, servicio,trabajdor,cliente)
   guardarCita(cita: NuevaCita): Observable<NuevaCita> { 
      
     //CORRECCION {data} en windows,    {info:data} en MAC
+    console.log(cita);
     return this.httpClient.post<NuevaCita>(this.urlpost, { cita }, { observe: 'body' })
       .pipe(
         catchError(this.handleError<any>('guardar cita'))

@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { LogregService } from '../services/logreg.service';
+import { Cita } from '../models/cita';
+import { CitaService } from '../services/cita.service';
+import { Trabajador } from '../models/trabajador';
+import { Servicio } from 'app/models/servicio';
 
 @Component({
   selector: 'app-profile',
@@ -12,27 +16,47 @@ export class ProfileComponent {
   email:string;
   image:string;
   path:string;
-
-  constructor(private logreg:LogregService){
+  citas: Cita[] = [];
+  trabajadores: Trabajador[] = [];
+  servicios: Servicio[] = [];
+  arraysListos:boolean= false;
+ 
+  constructor(private logreg:LogregService,private citasService:CitaService){
     this.username = '';
     this.email = '';
     this.image = '';
     this.path = '/assets/image/';
   }
-
+  private loadArrays = async () => {
+    return this.citas.forEach(c => {
+      this.trabajadores.push(JSON.parse(c.trabajador));
+      this.servicios.push(JSON.parse(c.servicio));
+    });
+    
+     
+  }
   ngOnInit():void{
 
     this.username = this.logreg.userName !== null?this.logreg.userName:'';
     this.email = this.logreg.userEmail !== null?this.logreg.userEmail:'';
-    //this.image = this.logreg.userPicture !== null?this.logreg.userPicture:'';
+ 
+    this.getCitasCliente(this.logreg.userId);
 
-    if(this.image === 'no_image.png'){
-      this.path = this.path + this.image;
-    }else{
-      this.path = this.path+this.logreg.userId+'/'+this.image;
-    }
+    
+    if (this.citas && this.trabajadores && this.servicios) this.arraysListos = true;
+    //console.log(this.trabajadores);
   }
-
+  private getCitasCliente = async (id_cliente: string) => {
+    await this.citasService.getCitasCliente(id_cliente).subscribe((res: Cita[]) => {
+      this.citas = res;
+      this.loadArrays().then(
+      );
+      //console.log(res);
+      //this.trabajadores = res.map(a => a.trabajador);
+     // console.log(this.trabajadores)
+      //this.servicios = res.map(a => JSON.parse(a.servicio));
+    });
+  }
   fileSelected(e:Event):void{
     const file:File = (e.target as HTMLInputElement).files![0];
 
