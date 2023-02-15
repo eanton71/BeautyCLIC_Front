@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LogregService } from '../services/logreg.service';
-import { Cita } from '../models/cita';
+import { Cita, CitaCliente } from '../models/cita';
 import { CitaService } from '../services/cita.service';
 import { Trabajador } from '../models/trabajador';
 import { Servicio } from 'app/models/servicio';
@@ -16,7 +16,7 @@ export class ProfileComponent {
   email:string;
   image:string;
   path:string;
-  citas: Cita[] = [];
+  citas: CitaCliente[] = [];
   trabajadores: Trabajador[] = [];
   servicios: Servicio[] = [];
   arraysListos:boolean= false;
@@ -27,14 +27,14 @@ export class ProfileComponent {
     this.image = '';
     this.path = '/assets/image/';
   }
-  private loadArrays = async () => {
+  /* private loadArrays = async () => {
     return this.citas.forEach(c => {
       this.trabajadores.push(JSON.parse(c.trabajador));
       this.servicios.push(JSON.parse(c.servicio));
     });
     
      
-  }
+  } */
   ngOnInit():void{
 
     this.username = this.logreg.userName !== null?this.logreg.userName:'';
@@ -47,7 +47,7 @@ export class ProfileComponent {
     //console.log(this.trabajadores);
   }
   private getCitasCliente = async (id_cliente: string) => {
-    await this.citasService.getCitasCliente(id_cliente).subscribe((res: Cita[]) => {
+    await this.citasService.getCitasCliente(id_cliente).subscribe((res: CitaCliente[]) => {
       this.citas = res;
      // FIXME: da error this.loadArrays().then(
      // );

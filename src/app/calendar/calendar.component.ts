@@ -79,7 +79,7 @@ export class CalendarComponent {
 
   }
   
-  
+  nombreservicio = this.serviciosService.nombre_servicio;
 
 
   anyo: number = 0;

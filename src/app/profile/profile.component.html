@@ -6,15 +6,18 @@
             dia: {{cita.dia}} mes: {{cita.mes}} año: {{cita.anio}}
             hora: {{cita.hora}} {{cita.minuto}}
 
+
+            Trabajador: {{cita.trabajador.nombre}}
+            Servicio: {{cita.servicio.nombre}}
         </li>
-        <li *ngFor="let trabajador of trabajadores">
+        <!--<li *ngFor="let trabajador of trabajadores">
 
             {{trabajador.nombre}}
         </li>
         <li *ngFor="let servicio of servicios">
 
             {{servicio.nombre}}
-        </li>
+        </li>-->
     </ul>
     <!-- <div class="image-container">
             <img class="profile-pic" [src]="path">

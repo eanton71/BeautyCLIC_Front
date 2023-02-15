@@ -16,7 +16,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {  catchError, Observable, of } from 'rxjs';
 
-import { Cita,NuevaCita } from '../models/cita'; 
+import { Cita, NuevaCita, CitaCliente } from '../models/cita'; 
 @Injectable({
   providedIn: 'root'
 })
@@ -48,10 +48,10 @@ export class CitaService {
   }
 
   //Mostrar citas del cliente despues de loguear
-  getCitasCliente(id_cliente: string): Observable<Cita[]> {
+  getCitasCliente(id_cliente: string): Observable<CitaCliente[]> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id_cliente", id_cliente); 
-    return this.httpClient.get<Cita[]>(this.urlgetCitasCliente, { observe: 'body', params: queryParams }).pipe(catchError(this.handleError<any>('getCitasCliente')));
+    return this.httpClient.get<CitaCliente[]>(this.urlgetCitasCliente, { observe: 'body', params: queryParams }).pipe(catchError(this.handleError<any>('getCitasCliente')));
   }
   //guardar cita (fecha,hora, servicio,trabajdor,cliente)
   guardarCita(cita: NuevaCita): Observable<NuevaCita> { 
