@@ -15,17 +15,17 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {  catchError, Observable, of } from 'rxjs';
-
+import { environment } from 'environments/environment';
 import { Cita, NuevaCita, CitaCliente } from '../models/cita'; 
 @Injectable({
   providedIn: 'root'
 })
 export class CitaService {
- 
-  private port = 3000;
-  private urlgetCitasTrabajadorDia = 'http://localhost:' + this.port + '/api/get_citas_trabajador_dia';
-  private urlgetCitasCliente = 'http://localhost:' + this.port + '/api/get_citas_cliente';
-  private urlpost = 'http://localhost:' + this.port + '/api/post_cita_trabajador_cliente';
+ //FIXME: cambiar en envirnmets
+  //private port = 3000;
+  //private urlgetCitasTrabajadorDia = 'http://localhost:' + this.port + '/api/get_citas_trabajador_dia';
+  //private urlgetCitasCliente = 'http://localhost:' + this.port + '/api/get_citas_cliente';
+ // private urlpost = 'http://localhost:' + this.port + '/api/post_cita_trabajador_cliente';
 
   //TODO: revisar para modificar citas y anularlas
   //private urldelete = 'http://localhost:' + this.port + '/api/delete_product';
@@ -44,21 +44,21 @@ export class CitaService {
     queryParams = queryParams.append("mes", mes.toString());
     queryParams = queryParams.append("dia", dia.toString());
     queryParams = queryParams.append("id_trabajador", id_trabajador);
-    return this.httpClient.get<Cita[]>(this.urlgetCitasTrabajadorDia, { observe: 'body',  params:queryParams }).pipe(catchError(this.handleError<any>('getCitasServicio')));
+    return this.httpClient.get<Cita[]>(environment.urlgetCitasTrabajadorDia, { observe: 'body',  params:queryParams }).pipe(catchError(this.handleError<any>('getCitasServicio')));
   }
 
   //Mostrar citas del cliente despues de loguear
   getCitasCliente(id_cliente: string): Observable<CitaCliente[]> {
     let queryParams = new HttpParams();
     queryParams = queryParams.append("id_cliente", id_cliente); 
-    return this.httpClient.get<CitaCliente[]>(this.urlgetCitasCliente, { observe: 'body', params: queryParams }).pipe(catchError(this.handleError<any>('getCitasCliente')));
+    return this.httpClient.get<CitaCliente[]>(environment.urlgetCitasCliente, { observe: 'body', params: queryParams }).pipe(catchError(this.handleError<any>('getCitasCliente')));
   }
   //guardar cita (fecha,hora, servicio,trabajdor,cliente)
   guardarCita(cita: NuevaCita): Observable<NuevaCita> { 
      
     //CORRECCION {data} en windows,    {info:data} en MAC
     console.log(cita);
-    return this.httpClient.post<NuevaCita>(this.urlpost, { cita }, { observe: 'body' })
+    return this.httpClient.post<NuevaCita>(environment.urlpost, { cita }, { observe: 'body' })
       .pipe(
         catchError(this.handleError<any>('guardar cita'))
       );
