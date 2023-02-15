@@ -186,9 +186,9 @@ export class CalendarComponent {
         console.log(cuartos);
         if (cita.hora == hora && cita.minuto == min) {
           console.log("hora trabajado H: ", cita.hora, " M: ", cita.minuto);
-          min += cita.duracion;
-          min = min % 60;
-          hora = hora + Math.floor(min / 60);
+          min += cuartos * 15;
+          min = (min + 15) % 60;
+          hora = hora + Math.floor((min + 15) / 60);
           i += cuartos;
            
         } 
