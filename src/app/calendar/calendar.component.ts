@@ -180,22 +180,23 @@ export class CalendarComponent {
 
       hora = hora + Math.floor((min + 15) / 60);
       min = (min + 15) % 60;
-      //comprobar para cada cita del 
+      //comprobar para cada cita del trabajador
       this.citasTrabajadorDia.forEach(cita => {
-        cuartos = Math.ceil(cita.duracion/15);
-        console.log(cuartos);
+        cuartos = Math.ceil(cita.duracion/15); 
         if (cita.hora == hora && cita.minuto == min) {
-          console.log("hora trabajado H: ", cita.hora, " M: ", cita.minuto);
+          //FIXME: error 
+          console.log("H: ", cita.hora, " | " ,hora, " M: ", cita.minuto, " | ", min);
           min += cuartos * 15;
-          min = (min + 15) % 60;
+          
           hora = hora + Math.floor((min + 15) / 60);
+          min = (min + 15) % 60;
           i += cuartos;
            
         } 
         
       });
 
-      this.horario.push({ hora: hora, min: min  });
+      this.horario.push({ hora: hora, min: min });
     }
   }
 

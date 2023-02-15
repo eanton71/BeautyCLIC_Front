@@ -15,7 +15,7 @@
       <div *ngFor="let servicio of servicios">
         <img class="categoria-imagen" class="foto" src={{this.serverimg+servicio.foto}}>
         <div class="categoria-descripcion">
-        <h4 [routerLink]="['/calendar', servicio._id]">{{servicio.nombre}} </h4>
+        <h4 [routerLink]="['/calendar', servicio._id]" (click)=toCalendar(servicio._id)>{{servicio.nombre}} </h4>
         <p>{{servicio.descripcion}}</p>
         <p>Duracion: {{servicio.duracion}} min</p>
       </div>

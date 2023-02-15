@@ -23,7 +23,11 @@ export class CategoriesComponent {
   ngOnInit() {
     this.getCategorias();
   }
-
+  //FIXME: poner esto en categorias y navbar para guardadr datos en storgae 
+  toCalendar(id_servicio: string) {
+    let servicio = this.servicios.find(a => a._id = id_servicio);
+    if (servicio) this.serviciosService.setLocalStorageServicio(servicio)//return this.router.navigateByUrl('/calendar', id_servicio);
+  }
   private getCategorias(): void {
     this.serviciosService.getCategorias().subscribe(res => this.categorias = res);
   }
