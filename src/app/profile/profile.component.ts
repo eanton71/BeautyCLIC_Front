@@ -29,8 +29,8 @@ export class ProfileComponent {
   }
   private loadArrays = async () => {
     return this.citas.forEach(c => {
-      //FIXME: TODO: this.trabajadores.push(JSON.parse(c.trabajador));
-      //this.servicios.push(JSON.parse(c.servicio));
+      this.trabajadores.push(JSON.parse(c.trabajador));
+      this.servicios.push(JSON.parse(c.servicio));
     });
     
      
@@ -49,8 +49,8 @@ export class ProfileComponent {
   private getCitasCliente = async (id_cliente: string) => {
     await this.citasService.getCitasCliente(id_cliente).subscribe((res: Cita[]) => {
       this.citas = res;
-      this.loadArrays().then(
-      );
+     // FIXME: da error this.loadArrays().then(
+     // );
       //console.log(res);
       //this.trabajadores = res.map(a => a.trabajador);
      // console.log(this.trabajadores)
