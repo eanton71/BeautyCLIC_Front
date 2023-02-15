@@ -1,8 +1,14 @@
-.workerDescription{
-  display: grid;
-  grid-template-columns: 2fr 1.5fr;
-  gap: 10px;
-  margin-left: 130px;
+#contentTeam {
+  margin-top: 100px;
 }
 
-
+.employee{
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  grid-template-areas:
+    "foto ";
+  gap: 10px;
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}

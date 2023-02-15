@@ -1,12 +1,15 @@
 <div id="contentTeam">
-  <div class="employee" *ngIf="trabajadores">
-    <div class="workerDescription" *ngFor="let trabajador of trabajadores">
-      <img src={{this.serverimg+trabajador.foto}} alt="workerImage">
-      <h3> {{trabajador.nombre + trabajador.apellidos}} </h3>
-      <p>{{trabajador.info}}</p>
+  <div *ngIf="trabajadores">
+    <div class="employee">
+      <div *ngFor="let trabajador of trabajadores">
+        <div class="workerFoto">
+          <img src={{this.serverimg+trabajador.foto}} alt="workerImage">
+        </div>
+        <div class="workerDescription">
+          <h3> {{trabajador.nombre + trabajador.apellidos}} </h3>
+          <p>{{trabajador.info}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<!--
-    -->
