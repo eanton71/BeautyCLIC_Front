@@ -29,8 +29,8 @@ export class ProfileComponent {
   }
   private loadArrays = async () => {
     return this.citas.forEach(c => {
-      this.trabajadores.push(JSON.parse(c.trabajador));
-      this.servicios.push(JSON.parse(c.servicio));
+      //FIXME: TODO: this.trabajadores.push(JSON.parse(c.trabajador));
+      //this.servicios.push(JSON.parse(c.servicio));
     });
     
      
