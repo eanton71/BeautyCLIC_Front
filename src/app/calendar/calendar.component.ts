@@ -47,18 +47,19 @@ export class CalendarComponent {
 
 
   id_cliente = "";
-  serverimg = environment.url_public;
   id_servicio = "";
+  //ruta donde estan las imagenes
+  serverimg = environment.url_public;
   trabajadores: Trabajador[] = new Array();
 
   selectedDate: any;
-  //definir fecha minima y maxima para mostrar
+  //definir fecha minima y maxima para mostrar en el calendario
   minDate = new Date();
   miliS = this.minDate.getTime();
   //1 minuto = 60000 miisegundos
   add2Meses = 2 * 30 * 24 * 60 * 60000;
   maxDate = new Date(this.miliS + this.add2Meses);
-    
+  //def fecha maxima y minima 
 
 
   constructor(
@@ -67,26 +68,18 @@ export class CalendarComponent {
     private serviciosService: ServiciosService,
     private route: ActivatedRoute
   )
-  {
-
-  }
+  { }
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id_servicio = params['id'];
     });
-
+    //mostrar trabajadores que realizan el servicio 
     this.get_trabajadores_servicio(this.id_servicio); 
-    //this.selected = this.trabajadores[0].nombre;
-   // this.getLocalStorageID();
+    console.log(this.trabajadores);
 
   }
-  /* private getLocalStorageID(): void {
-
-    let usr: Cliente = JSON.parse(localStorage.getItem('servicio')!);
-    this.id_cliente = usr._id;
-
-  } */
-
+  
+  
 
 
   anyo: number = 0;
@@ -103,12 +96,14 @@ export class CalendarComponent {
     this.dia = this.selectedDate.getDate();
 
     //if (this.selectedTrabajador) this.getCitasTrabajadorDia(this.anyo, this.mesN, this.dia, this.selectedTrabajador._id);
-
+    if (this.selectedTrabajador) {
+      this.getCitasTrabajadorDia(this.anyo, this.mesN, this.dia, this.selectedTrabajador._id);
+    }
     //y generamos la lista de horas disponibles
 
     if (this.citasTrabajadorDia)this.generarHorario();
-    this.horarioStr = this.horario.map(a => a.hora + ":" + a.min);
-    this.horariocreado = true;
+    this.horarioStr = this.horario.map(a => a.hora + ":" + a.min );
+     
     
   }
   onSelectListChange($event: MatSelectionListChange) {
@@ -117,9 +112,14 @@ export class CalendarComponent {
      
     this.hora = this.horario[indice].hora;
     this.min = this.horario[indice].min; 
+    //console.log(this.hora, " y  ", this.min);
   }
 
   cita: NuevaCita | undefined;
+  enableChipList() {
+    //console.log("enable: ",this.trabajadores);
+    return this.trabajadores==null;
+  }
   enableButtonSaveCita() {
     return !(this.anyo
       && this.mes
@@ -152,14 +152,7 @@ export class CalendarComponent {
     });
     
   }
-  citasTrabajadorDia: Cita[]=[];
-  getCitasTrabajadorDia(anyo: Number, mes: Number, dia: Number, id_trabajador: string) {
-
-    this.citaService.getCitasTrabajadorDia(anyo, mes, dia, id_trabajador).subscribe((res: Cita[]) => {
-      this.citasTrabajadorDia = res;
-    }); 
-    
- }
+  
   nofestivos: boolean[] = new Array();
   /**
    * para deshabilitar dias y no se puedan clicar
@@ -171,32 +164,41 @@ export class CalendarComponent {
    
   horario = new Array();
   horarioStr: string[] = [];
-  horariocreado = false;
+  muestrahoras = false;
   generarHorario() {
+    
+     
+    let cuartos = Math.ceil(this.serviciosService.duracion_servicio / 15);
+    let horarioLength = 48 - cuartos;
     this.horario = new Array();
     let hora: number = 9;
-    let min: number = 0;
-    this.horario.push({ hora: 9, min: 0 });
-    for (let i = 1; i < 48; i++) {
-      hora = hora + Math.floor((min + 15) / 60);
-      min = (min + 15) % 60; 
-      this.citasTrabajadorDia.forEach(cita=>
-      {
-        let cuartos = Math.ceil(cita.duracion); 
-        if (cita.hora == hora && cita.minuto == min) {
-          //console.log("horas trabajdo H: ", h, " M: ", m);
-          min += cita.duracion;
-          min = (min + 15) % 60;
-          hora = hora + Math.floor((min + 15) / 60);
-          i += cuartos;
-          //console.log("COINCIDE H: ", hora, " M: ", min);
-        }
-        }
-      );
+    let min: number = 0; 
+    this.horario.push({ hora: 9, min: 0  });
+    
+    for (let i = 1; i < horarioLength; i++) {
+       
 
-      this.horario.push({ hora: hora, min: min });
+      hora = hora + Math.floor((min + 15) / 60);
+      min = (min + 15) % 60;
+      //comprobar para cada cita del 
+      this.citasTrabajadorDia.forEach(cita => {
+        cuartos = Math.ceil(cita.duracion/15);
+        console.log(cuartos);
+        if (cita.hora == hora && cita.minuto == min) {
+          console.log("hora trabajado H: ", cita.hora, " M: ", cita.minuto);
+          min += cita.duracion;
+          min = min % 60;
+          hora = hora + Math.floor(min / 60);
+          i += cuartos;
+           
+        } 
+        
+      });
+
+      this.horario.push({ hora: hora, min: min  });
     }
   }
+
   selectedTrabajador: Trabajador = {
     _id: '',
     nombre: '',
@@ -205,25 +207,35 @@ export class CalendarComponent {
     info: '',
     foto: ''
   }; 
-  selectedChip(event: MatChipListboxChange): void {
-    //this.selectedTrabajador = event.value;
-   // console.log(event.value);
-    this.selectedTrabajador = event.value;
-    //console.log(this.selectedTrabajador._id);
-    /* let trL: Trabajador[] =[];
-    trL = this.trabajadores;
-    this.tr = trL.find(t => t.nombre = event.value);
-    if(this.tr)console.log(this.tr._id); */
-    try {
-      this.getCitasTrabajadorDia(this.anyo, this.mesN, this.dia, this.selectedTrabajador._id);
-    } catch (error) { };
+  selectedChip(event: MatChipListboxChange): void { 
+    this.selectedTrabajador = event.value; 
+  
+     
   }
+  citasTrabajadorDia: Cita[] = [];
+  private getCitasTrabajadorDia = async(anyo: Number, mes: Number, dia: Number, id_trabajador: string)=> {
 
-  private get_trabajadores_servicio = (id: string) => {
-    this.serviciosService.getTrabajadoresServicio(id).subscribe((res:Trabajador[]) => { 
+    await this.citaService.getCitasTrabajadorDia(anyo, mes, dia, id_trabajador).subscribe((res: Cita[]) => {
+      this.citasTrabajadorDia = res;
+      this.muestrahoras = true;
+    });
+
+  }
+  private get_trabajadores_servicio = async (id: string) => {
+    await this.serviciosService.getTrabajadoresServicio(id).subscribe((res:Trabajador[]) => { 
       this.trabajadores = res; 
     }); 
   }
+
+
+
+
+
+
+
+
+
+
   /**
     
      

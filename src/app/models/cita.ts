@@ -1,7 +1,7 @@
 //citas segun trabajadores que hagan ese servicio
 export interface Cita {
     _id: string;
-    anyo: number;
+    anio: number;
     mes: number;
     dia: number;
     hora: number;
