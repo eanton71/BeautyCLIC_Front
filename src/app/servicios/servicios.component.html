@@ -10,7 +10,10 @@
     </ul>
     <ul>
         <li *ngFor="let servicio of servicios"> 
-            <a [routerLink]="['/calendar', servicio._id]" (click)=toCalendar(servicio._id) >{{servicio.nombre}} </a>
+            <a [routerLink]="['/calendar', servicio._id]" (click)=toCalendar(servicio._id) >
+                {{servicio._id}}
+                {{servicio.nombre}} 
+            </a>
              
              <img class="imgcategorias" src={{this.serverimg+servicio.foto}}>
     

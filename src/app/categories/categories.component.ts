@@ -23,9 +23,9 @@ export class CategoriesComponent {
   ngOnInit() {
     this.getCategorias();
   }
-  //FIXME: poner esto en categorias y navbar para guardadr datos en storgae 
+  //FIXME: en el find sise hace la comparacion con un igual cambia el valor = no === estricto SI
   toCalendar(id_servicio: string) {
-    let servicio = this.servicios.find(a => a._id = id_servicio);
+    let servicio = this.servicios.find(a => a._id === id_servicio);
     if (servicio) this.serviciosService.setLocalStorageServicio(servicio)//return this.router.navigateByUrl('/calendar', id_servicio);
   }
   private getCategorias(): void {

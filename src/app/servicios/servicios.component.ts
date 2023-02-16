@@ -22,9 +22,11 @@ export class ServiciosComponent {
     //carga una lista con las categorias
     this.getCategorias();
   }
-  //FIXME: poner esto en categorias y navbar para guardadr datos en storgae 
+  //FIXME: poner esto en categorias y navbar para guardadr datos en storage 
   toCalendar(id_servicio: string) {
-    let servicio = this.servicios.find(a => a._id = id_servicio) ;
+    console.log(this.servicios);
+    let servicio = this.servicios.find(a => a._id === id_servicio);
+    console.log("a calendar: ", servicio, " ,, ", id_servicio);
     if(servicio)this.serviciosService.setLocalStorageServicio(servicio)//return this.router.navigateByUrl('/calendar', id_servicio);
   }
   private getCategorias(): void {
