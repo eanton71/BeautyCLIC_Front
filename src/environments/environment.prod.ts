@@ -1,18 +1,18 @@
-export const environment = {
+//https://backend.formactiu.com/
+ export const environment = {
   production: true, 
-  
-  url_public: 'https://backend.formactiu.com/assets',
-  url_login: 'https://backend.formactiu.com/api/login-user',
-  url_register: 'https://backend.formactiu.com/api/register-user',
-  url_update_image: 'https://backend.formactiu.com/api/upload/user-pic',
-  urlpost: 'https://backend.formactiu.com/api/post_cita_trabajador_cliente',
-  urlgetCitasCliente: 'https://backend.formactiu.com/api/get_citas_cliente',
-  urlgetCitasTrabajadorDia: 'https://backend.formactiu.com/api/get_citas_trabajador_dia',
-  url_newslist: 'https://backend.formactiu.com/api/newslist',
-  urlgetTrabajadoresServicio: 'https://backend.formactiu.com/api/get_trabajadores_servicio',
-  urlgetCategorias: 'https://backend.formactiu.com/api/get_categorias',
-  urlgetServicios: 'https://backend.formactiu.com/api/get_servicios',
-  url: 'https://backend.formactiu.com/api/get_trabajadores',
+   url_public: 'https://beauty-clic-back.vercel.app/assets',
+  url_login: 'https://beauty-clic-back.vercel.app/api/login-user',
+  url_register: 'https://beauty-clic-back.vercel.app/api/register-user',
+  url_update_image: 'https://beauty-clic-back.vercel.app/api/upload/user-pic',
+  urlpost: 'https://beauty-clic-back.vercel.app/api/post_cita_trabajador_cliente',
+  urlgetCitasCliente: 'https://beauty-clic-back.vercel.app/api/get_citas_cliente',
+  urlgetCitasTrabajadorDia: 'https://beauty-clic-back.vercel.app/api/get_citas_trabajador_dia',
+  url_newslist: 'https://beauty-clic-back.vercel.app/api/newslist',
+  urlgetTrabajadoresServicio: 'https://beauty-clic-back.vercel.app/api/get_trabajadores_servicio',
+  urlgetCategorias: 'https://beauty-clic-back.vercel.app/api/get_categorias',
+  urlgetServicios: 'https://beauty-clic-back.vercel.app/api/get_servicios',
+  url: 'https://beauty-clic-back.vercel.app/api/get_trabajadores',
   pubkey: `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyfmKEnrvSjcF5GjHH8Gt
 uJ75DsLWn9e5O1UE+utY3o7ygpnXUKPZ7eZz7+XAPl2IiQIXg3bi0Dd5yLX7YyRA
