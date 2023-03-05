@@ -1,7 +1,7 @@
 //https://backend.formactiu.com/
  export const environment = {
   production: true, 
-   url_public: 'https://beauty-clic-back.vercel.app/assets',
+  url_public: 'https://beauty-clic-front.vercel.app/assets',
   url_login: 'https://beauty-clic-back.vercel.app/api/login-user',
   url_register: 'https://beauty-clic-back.vercel.app/api/register-user',
   url_update_image: 'https://beauty-clic-back.vercel.app/api/upload/user-pic',
