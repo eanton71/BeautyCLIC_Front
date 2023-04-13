@@ -2,7 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router, RouterState } from '@angular/router';
-
+declare var gtag:Function;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -45,8 +45,4 @@ export class AppComponent {
 }
 
 
-
-function gtag(arg0: string, arg1: string, arg2: { page_title: string; page_path: string; page_location: string; }) {
-  throw new Error('Function not implemented.');
-}
 //title = 'BeautyFront';
