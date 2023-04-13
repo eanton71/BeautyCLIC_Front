@@ -1,5 +1,5 @@
 //https://backend.formactiu.com/
- export const environment = {
+export const environment = { 
   production: true, 
   url_public: 'https://beauty-clic-front.vercel.app/assets',
   url_login: 'https://beauty-clic-back.vercel.app/api/login-user',
