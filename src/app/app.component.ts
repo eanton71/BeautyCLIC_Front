@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        console.log(event.urlAfterRedirects);
+        console.log("Google Analytics: ",event.urlAfterRedirects);
         gtag('config', 'G-GQRM8Y269W',
           {
             'page_path': event.urlAfterRedirects,
