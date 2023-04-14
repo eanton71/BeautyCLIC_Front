@@ -1,4 +1,4 @@
-export const environment = {
+export const environment = { 
   production: false,
   url_public: 'http://localhost:4200/assets',
   url_login:'http://localhost:3000/api/login-user',
